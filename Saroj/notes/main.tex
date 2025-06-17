@@ -1,0 +1,61 @@
+\documentclass[12pt]{report}
+
+\usepackage{amsmath,caption,float,geometry,titlesec,tikz,tkz-euclide}
+
+\geometry{a4paper, margin=1in}
+
+\title{Projective Geometry}
+\author{Saroj Kumar \and Supervisor: Dr. Steven Spallone}
+\date{}
+
+\titleformat{\chapter}
+    [frame]
+    {\bfseries\Huge}
+    {\Large CHAPTER \thechapter}
+    {1ex}{\centering}[]
+
+\DeclareCaptionFormat{capfmt}{\textbf{#1 #2}#3}
+\captionsetup{format=capfmt}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \fbox{
+        \begin{minipage}[t][0.96\textheight][t]{0.96\textwidth}
+            \begin{center}
+                \vfill
+
+                \textbf{\Huge PROJECTIVE GEOMETRY} \\
+
+                \vspace{5ex}
+
+                {\Large Saroj Kumar} \\
+
+                \vspace{1ex}
+
+                {\large 20231224}
+
+                \vfill
+
+                {\large supervised by} \\
+
+                \vspace*{1ex}
+
+                {\Large Dr. Steven Spallone} \\
+
+                \vspace{0.1\textheight}
+
+                {Summer 2025} \\
+
+                \vspace{0.1\textheight}
+            \end{center}
+        \end{minipage}
+    }
+\end{titlepage}
+
+\tableofcontents{
+
+\input{chapters/conics.tex}
+
+\end{document}

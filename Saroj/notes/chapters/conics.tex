@@ -1,0 +1,38 @@
+\chapter{Conics}
+
+\section{Group Laws on Conics}
+
+Consider a conic section $C$ and a point $O \in C$. For any points $P,Q \in C$,
+let $\ell'$ be the line passing through $O$ such that $\ell' \| \ell$ where
+$\ell$ is the line joining $P$ and $Q$. If $\ell'$ intersects $C$ at a point
+other than $O$, call that point $R$. Otherwise, take $R=O$. Define a binary
+operation $\oplus : C \times C \to C$ as $P \oplus Q := R$.
+\vspace{1ex}
+
+\begin{figure}[H]
+    \center
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){C}
+        \tkzDefPoint(-2,0){O}
+        \tkzDefPoint({2*cos(70*pi/180)},{2*sin(70*pi/180)}){P}
+        \tkzDefPoint({2*cos(-30*pi/180)},{2*sin(-30*pi/180)}){Q}
+        \tkzDefPoint({2*cos(-140*pi/180)},{2*sin(-140*pi/180)}){R}
+
+        \tkzDrawPoints[fill=black](O,P,Q,R)
+        \tkzDrawLine[<->,line width=0.5,add=0.2 and 0.2](P,Q)
+        \tkzDrawLine[<->,line width=0.5,add=0.5 and 0.5](O,R)
+        \tkzDrawCircle[color=black,line width=0.5](C,O)
+
+        \tkzLabelPoints[left](O)
+        \tkzLabelPoints[above right](P)
+        \tkzLabelPoints[right](Q)
+        \tkzLabelPoints[below left](R)
+    \end{tikzpicture}
+
+    \label{fig}
+    \caption{$P \oplus Q$ when $C$ is a circle.}
+\end{figure}
+
+\noindent
+Show that $C$ forms a group under $\oplus$ and find formulae to calculate
+$P \oplus Q$.
