@@ -1,6 +1,6 @@
 \documentclass[12pt]{report}
 
-\usepackage{amsmath,caption,float,geometry,titlesec,tikz,tkz-euclide}
+\usepackage{amsmath,amssymb,amsthm,caption,float,geometry,mathrsfs,titlesec,tikz,tkz-euclide,wrapfig}
 
 \geometry{a4paper, margin=1in}
 
@@ -16,6 +16,10 @@
 
 \DeclareCaptionFormat{capfmt}{\textbf{#1 #2}#3}
 \captionsetup{format=capfmt}
+
+\newtheorem{theorem}{Theorem}
+
+\renewcommand\qedsymbol{$\blacksquare$}
 
 \begin{document}
 
