@@ -1,6 +1,6 @@
 \documentclass[12pt]{report}
 
-\usepackage{amsmath,amssymb,amsthm,caption,float,geometry,mathrsfs,titlesec,tikz,tkz-euclide,wrapfig}
+\usepackage{amsmath,amssymb,amsthm,bm,caption,float,geometry,mathrsfs,titlesec,tikz,tkz-euclide,wrapfig}
 
 \geometry{a4paper, margin=1in}
 
@@ -19,6 +19,9 @@
 
 \newtheorem{theorem}{Theorem}
 
+\newcommand\conop{\oplus_{\vphantom{\dfrac{}{}}O}}
+\newcommand\tgrp[3]{\mathrm{#1}_{#2}(\mathbb{#3})}
+\newcommand\SO[2]{\tgrp{SO}{#1}{#2}}
 \renewcommand\qedsymbol{$\blacksquare$}
 
 \begin{document}
