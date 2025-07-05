@@ -1,7 +1,9 @@
 \documentclass[12pt]{report}
 
-\usepackage{amsmath,amssymb,amsthm,bm,caption,float,geometry,mathrsfs,titlesec,tikz,tkz-euclide,wrapfig}
+\usepackage{amsmath,amssymb,amsthm,bm,caption,float,geometry,mathrsfs,titlesec}
+\usepackage{tikz,tkz-euclide,wrapfig}
 
+\usepackage[math]{cellspace}
 \geometry{a4paper, margin=1in}
 
 \title{Projective Geometry}
@@ -23,6 +25,9 @@
 \newcommand\tgrp[3]{\mathrm{#1}_{#2}(\mathbb{#3})}
 \newcommand\SO[2]{\tgrp{SO}{#1}{#2}}
 \renewcommand\qedsymbol{$\blacksquare$}
+
+\setlength{\cellspacetoplimit}{5pt}
+\setlength{\cellspacebottomlimit}{5pt}
 
 \begin{document}
 

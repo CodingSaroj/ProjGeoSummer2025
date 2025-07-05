@@ -506,42 +506,47 @@ $\vec{A},\vec{B}\in\mathcal{S}$.
 
 \begin{proof}
     Let $i\in\mathbb{F}$ be a solution to $x^2+1=0$. From the previous proof, we
-    have, for any $M\in\SO{2}{F}$,
-    \[ M=\begin{bmatrix}a & -b \\ b & a\end{bmatrix} \]
-    where $a,b\in\mathbb{F}$. The characteristic polynomial of $M$ is
+    have, for any $M(a,b)\in\SO{2}{F}$,
+    \[ M(a,b)=\begin{bmatrix}a & -b \\ b & a\end{bmatrix} \]
+    where $a,b\in\mathbb{F}$. The characteristic polynomial of $M(a,b)$ is
     $(a-\lambda)^2+b^2$ or $\lambda^2 - 2 a \lambda + a^2 + b^2$. Thus the
     eigenvalues are $a \pm ib$. The corresponding eigenvectors will be
     $(1,\mp i)$. We can then write $M$ as a diagonal matrix,
-    \[ M'=\begin{bmatrix}a+ib & 0 \\ 0 & a-ib\end{bmatrix} \]
-    So, we'll denote elements of $\SO{2}{F}$ as $M(a+ib)$ where $a+ib \neq 0$ as
-    elements of $\SO{2}{F}$ are invertible. Consider the map
-    $\varphi : \SO{2}{F} \to \mathbb{F}^\times$ given by $\varphi(M(a+ib))=a+ib$.
+    \[ M'(a,b)=\begin{bmatrix}a+ib & 0 \\ 0 & a-ib\end{bmatrix} \]
+    For any $z\in\mathbb{F}^\times$, $\exists\,a,b\in\mathbb{F}$ such that
+    $z=a+ib$. In particular, $b=-i(z-a)$. Further, $a^2+b^2=1$ gives $z^2-2az+1=0$
+    i.e. $a=(z^{-1}+z)/2$ and $b=i(z^{-1}-z)/2$. Consider the map
+    $\varphi : \mathbb{F}^\times \to \SO{2}{F}$ given by
+    \[ \varphi(z)=M\left(\frac{z^{-1}+z}{2},\frac{i(z^{-1}-z)}{2}\right) \]
     \vspace{1ex}
 
     \noindent
-    For any $M(a+ib),M(c+id)\in\SO{2}{F}$,
+    For any $z_1,z_2\in\mathbb{F}^\times$,
     \begin{align*}
-        \varphi(M(a+ib)M(c+id)) &= \varphi(M((a+ib)(c+id))) \\
-                                &= (a+ib)(c+id) \\
-                                &= \varphi(M(a+ib))\varphi(M(c+id))
+        & \varphi(z_1)=\varphi(z_2) \\
+        \implies& z_1 z_2^2 - (z_1^2+1)z_2 + z_1 = 0\ \mathrm{and}\ z_2^{-1} - z_2 = z_1^{-1} - z_1 \\
+        \implies& z_2 = z_1,z_1^{-1}\ \mathrm{and}\ z_2^{-1} - z_2 = z_1^{-1} - z_1 \\
+        \implies& z_2 = z_1
     \end{align*}
-    Thus $\varphi$ is a homomorphism.
+    So, $\varphi$ is injective. Further, for any $M(a,b)\in\SO{2}{F}$,
+    $a+ib \neq 0$ (otherwise, $a^2+b^2=0$). Hence, $\varphi(a+ib)=M(a,b)$ and
+    $\varphi$ is surjective.
     \vspace{1ex}
 
     \noindent
-    For any $M(a+ib),M(c+id)\in\SO{2}{F}$,
+    For any $z_1,z_2\in\mathbb{F}^\times$,
     \begin{align*}
-        \varphi(M(a+ib)) = \varphi(M(c+id)) \implies a+ib = c+id
+        \varphi(z_1)\varphi(z_2) &= M\left(\frac{z_1^{-1}+z_1}{2},\frac{i(z_1^{-1}-z_1)}{2}\right)M\left(\frac{z_2^{-1}+z_2}{2},\frac{i(z_2^{-1}-z_2)}{2}\right) \\
+                                 &= \begin{bmatrix}
+                                        \dfrac{(z_1 z_2)^{-1} + z_1 z_2}{2} &
+                                        \dfrac{i((z_1 z_2)^{-1} - z_1 z_2)}{2} \\
+                                        \dfrac{-i((z_1 z_2)^{-1} - z_1 z_2)}{2} &
+                                        \dfrac{(z_1 z_2)^{-1} + z_1 z_2}{2}
+                                    \end{bmatrix} \\
+                                 &= M\left(\frac{(z_1 z_2)^{-1} + z_1 z_2}{2},\frac{i((z_1 z_2)^{-1} - z_1 z_2)}{2}\right) \\
+                                 &= \varphi(z_1 z_2)
     \end{align*}
-    Thus $\varphi$ is injective.
-    \vspace{1ex}
-
-    \noindent
-    For any $a,x\in\mathbb{F}^\times$, let $x=a+ib$. This gives $b=-i(x-a)$.
-    Further, $a^2+b^2=1$ gives $x^2 - 2ax + 1 = 0$ which is just the
-    characteristic equation of $M(x)$. Hence, we have $M(x)\in\SO{2}{F}$ such that
-    $\varphi(M(x))=x$. Thus $\varphi$ is surjective. This shows that $\varphi$ is
-    a bijective homomorphism i.e. an isomorphism from 
+    Thus $\varphi$ is bijective homomorphism i.e. an isomorphism from
     $\langle\SO{2}{F},\cdot\rangle$ to $\langle\mathbb{F}^\times,\cdot\rangle$.
 \end{proof}
 
