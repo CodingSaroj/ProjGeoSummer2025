@@ -20,11 +20,20 @@
 \captionsetup{format=capfmt}
 
 \newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem*{notation}{Notation}
 
 \newcommand\conop{\oplus_{\vphantom{\dfrac{}{}}O}}
 \newcommand\tgrp[3]{\mathrm{#1}_{#2}(\mathbb{#3})}
 \newcommand\SO[2]{\tgrp{SO}{#1}{#2}}
+\newcommand\AffF[2]{\mathbb{A}^{#1}(\mathbb{#2})}
+\newcommand\Aff[1]{\mathbb{A}^{#1}}
 \renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\A}{A}
+\DeclareMathOperator{\GA}{GA}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
 
 \setlength{\cellspacetoplimit}{5pt}
 \setlength{\cellspacebottomlimit}{5pt}
@@ -69,5 +78,7 @@
 \tableofcontents{
 
 \input{chapters/conics.tex}
+
+\input{chapters/affine.tex}
 
 \end{document}

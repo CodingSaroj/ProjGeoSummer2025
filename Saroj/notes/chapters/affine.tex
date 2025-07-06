@@ -1,0 +1,93 @@
+\chapter{Affine Geometry}
+
+\section{Affine space}
+
+\begin{definition}
+    Given a vector space $\vec{X}$ over $\mathbb{F}$, its set of points $X$ and
+    an operation $+: X\times\vec{X} \to X$ such that $\forall\,\vec{v},\vec{w}\in\vec{X}$
+    and $\forall\,p\in\vec{X}$,
+    \begin{enumerate}
+        \item $p + \vec{0} = p$
+        \item $p + (\vec{v} + \vec{w}) = (p + \vec{v}) + \vec{w}$
+        \item $\theta_{p} : \vec{X} \to X$ given by
+            $\theta_{p}(\vec{v}) = p + \vec{v}$ is a bijection.
+    \end{enumerate}
+    Then $X$ is called an affine space with underlying vector space $\vec{X}$.
+\end{definition}
+
+%\begin{notation}
+%    For a triple $(A,\vec{A},+)$ denoted as $\AffF{n}{F}$, we'll use
+%    $a\in\Aff{n}$ to mean $a \in A$ and $\vec{a}\in\AffF{n}{F}$ to mean
+%    $\vec{a}\in\vec{A}$.
+%\end{notation}
+
+\noindent
+Due to the third point above, we have the following definition:
+
+\begin{definition}
+    Given an affine space $X$, for any $\,a,b \in X$,
+    \[ b - a := \theta_a^{-1}(b) \]
+\end{definition}
+
+\section{Affine frames and coordinates}
+
+\begin{definition}
+    An $(n+1)$-tuple $(p_0,\vec{v}_1,...,\vec{v}_n)$ where $p_0 \in X$ and
+    $\{\vec{v}_1,...,\vec{v}_n\}$ is a basis of $\vec{X}$ is called an affine
+    frame.
+\end{definition}
+
+\noindent
+Given $p \in X$ and an affine frame $(p_0,\vec{v}_1,...,\vec{v}_n)$ of $X$, if
+$p-p_0=c_1\vec{v}_1+...+c_n\vec{v}_n$, then $p$ is said to have coordinates
+$(c_1,...,c_n)$ in that frame.
+
+\section{Affine transformation}
+
+\begin{definition}
+    Given an affine space $X$, a funtion $f: X \to X$ is said to be an affine
+    transformation if $\exists\,\vec{f}\in\End(\vec{X}): \vec{f}(b-a)=f(b)-f(a)\ \forall\,a,b \in X$.
+\end{definition}
+
+\begin{notation}
+    We denote the set of affine transformations over $X$ as $\A(X)$ and the set of
+    invertible affine transformations over $X$ as $\GA(X)$.
+\end{notation}
+
+\begin{theorem}
+    Given $f\in\A(X)$, $\vec{f}$ is unique. Further, given some $p_0 \in X$,
+    $\exists!\,b\in{A}$ such that $f(p)=b+\vec{f}(p-p_0)\ \forall\,p \in X$.
+\end{theorem}
+
+\begin{proof}
+    Suppose $\vec{f}_1,\vec{f}_2\in\End(\vec{X})$ such that for any $a,b \in X$
+    \begin{align*}
+        \vec{f}_1(b-a)=f(b)-f(a) \\
+        \vec{f}_2(b-a)=f(b)-f(a)
+    \end{align*}
+    Assume $\exists\,\vec{v}\in\vec{X}: \vec{f}_1(\vec{v})\neq\vec{f}_2(\vec{v})$.
+    For some $a \in X$, we have $\theta_a(\vec{v}) \in X$ such that
+    $\theta_a(\vec{v})-a=\theta_a^{-1}(\theta_a(\vec{v}))=\vec{v}$. This means
+    \[
+        \vec{f}_1(\vec{v}) = \vec{f}_1(\theta_a(\vec{v})-a)
+        = f(\theta_a(\vec{v}))-f(a)
+        = \vec{f}_2(\theta_a(\vec{v})-a)= \vec{f}_2(\vec{v})
+    \]
+    This is a contradiction. Hence, our assumption that such a $\vec{v}$ exists
+    must be wrong and so, $\vec{f}_1=\vec{f}_2$.
+    \vspace{1ex}
+
+    \noindent
+    Fixing some $p_0 \in X$, we have
+    $\vec{f}(p-p_0)=f(p)-f(p_0)\ \forall\,p \in X$. So,
+    \[ f(p)=f(p_0)+\vec{f}(p-p_0)\ \forall\,p \in X \]
+    Hence, $b=f(p_0)$. For some $b_1,b_2 \in X$ and $b_1 \neq b_2$, assume
+    \[ f(p)=b_1+\vec{f}(p-p_0)\ \forall\,p \in X \]
+    \[ f(p)=b_2+\vec{f}(p-p_0)\ \forall\,p \in X \]
+    Note that
+    \[ b_1=b_1+(\vec{f}(p-p_0)-\vec{f}(p-p_0))=(b_1+\vec{f}(p-p_0))-\vec{f}(p-p_0)=f(p)-\vec{f}(p-p_0) \]
+    \[ b_2=b_2+(\vec{f}(p-p_0)-\vec{f}(p-p_0))=(b_2+\vec{f}(p-p_0))-\vec{f}(p-p_0)=f(p)-\vec{f}(p-p_0) \]
+    Hence, $b_1=b_2$.
+\end{proof}
+
+\section{Fundamental theorem of Affine Geometry}
