@@ -1,0 +1,7 @@
+[1, x, y, x*y, x^2, y^2]
+35 irreducible polynomials found.
+21 irreducible polynomials found.
+10 irreducible polynomials found.
+6 irreducible polynomials found.
+[x*y + 1, y^2 + x, x^2 + x + 1, x*y + y^2 + x, x^2 + x*y + y^2, x^2 + x*y + y^2 + 1]
+Print graphs(y/n): 
