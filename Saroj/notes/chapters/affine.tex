@@ -32,15 +32,15 @@ Due to the third point above, we have the following definition:
 \section{Affine frames and coordinates}
 
 \begin{definition}
-    An $(n+1)$-tuple $(p_0,\vec{v}_1,...,\vec{v}_n)$ where $p_0 \in X$ and
-    $\{\vec{v}_1,...,\vec{v}_n\}$ is a basis of $\vec{X}$ is called an affine
+    An $(n+1)$-tuple $(p_0,\vec{v}_1,\dots,\vec{v}_n)$ where $p_0 \in X$ and
+    $\{\vec{v}_1,\dots,\vec{v}_n\}$ is a basis of $\vec{X}$ is called an affine
     frame.
 \end{definition}
 
 \noindent
-Given $p \in X$ and an affine frame $(p_0,\vec{v}_1,...,\vec{v}_n)$ of $X$, if
-$p-p_0=c_1\vec{v}_1+...+c_n\vec{v}_n$, then $p$ is said to have coordinates
-$(c_1,...,c_n)$ in that frame.
+Given $p \in X$ and an affine frame $(p_0,\vec{v}_1,\dots,\vec{v}_n)$ of $X$, if
+$p-p_0=c_1\vec{v}_1+\dots+c_n\vec{v}_n$, then $p$ is said to have coordinates
+$(c_1,\dots,c_n)$ in that frame.
 
 \section{Affine transformation}
 
@@ -54,7 +54,7 @@ $(c_1,...,c_n)$ in that frame.
     invertible affine transformations over $X$ as $\GA(X)$.
 \end{notation}
 
-\begin{theorem}
+\begin{theorem} \label{thm:aff_lin_rep}
     Given $f\in\A(X)$, $\vec{f}$ is unique. Further, given some $p_0 \in X$,
     $\exists!\,b\in{A}$ such that $f(p)=b+\vec{f}(p-p_0)\ \forall\,p \in X$.
 \end{theorem}
@@ -91,3 +91,81 @@ $(c_1,...,c_n)$ in that frame.
 \end{proof}
 
 \section{Fundamental theorem of Affine Geometry}
+
+\begin{theorem}
+    If $A_0,A_1,\dots,A_n,B_0,B_1,\dots,B_n \in X$ such that
+    $\{A_1-A_0,\dots,A_n-A_0\}$ and $\{B_1-B_0,\dots,B_n-B_0\}$ are linearly
+    independent where $n = \dim \vec{X}$, then
+    \[ \exists!\,f\in\GA(X): f(A_i) = B_i\ \forall\,i\in\{0,1,\dots,n\} \]
+\end{theorem}
+
+\begin{proof}
+    Let $\vec{v}_i=A_i-A_0$ and $\vec{w}_i=B_i-A_0\ \forall\,i\in\{1,2,\dots,n\}$.
+    Clearly, both $\beta_1=\{\vec{v}_1,\dots,\vec{v}_n\}$ and
+    $\beta_2=\{\vec{w}_1,\dots,\vec{w}_n\}$ form a basis for $\vec{X}$. In fact,
+    there are unique linear transformations $\vec{f}_1,\vec{f}_2\in\GL(\vec{X})$
+    such that $\vec{f}_1(\vec{v}_i)=\vec{e}_i$ and
+    $\vec{f}_2(\vec{w}_i)=\vec{e}_i\ \forall\,i\in\{1,2,\dots,n\}$ where
+    $\{\vec{e}_1,\dots,\vec{e}_n\}$ is the standard basis of $\vec{X}$.
+    \vspace{1ex}
+
+    \noindent
+    Consider the affine transformations $f_1,f_2\in\GA(X)$ given by
+    \begin{align*}
+        f_1(p) = O + \vec{f}_1(p-A_0)\ \forall\,p \in X \\
+        f_2(p) = O + \vec{f}_1(p-B_0)\ \forall\,p \in X 
+    \end{align*}
+    Now, $f_1(A_0)=f_2(B_0)=O$ and
+    $f_1(A_i)=f_2(B_i)=O+\vec{e}_i\ \forall\,i\in\{1,2,\dots,n\}$. Since $f_1$ and
+    $f_2$ are invertible, it is easy to see that $f=f_2^{-1}f_1$ satisfies
+    $f(A_i)=B_i\ \forall\,i\in\{0,1,\dots,n\}$.
+    \vspace{1ex}
+
+    \noindent
+    Next, we need to prove that $f$ is unique. Suppose there are two affine
+    transformations $g_1,g_2\in\GA(X)$ that satisfy
+    $g_1(A_i)=g_2(A_i)=B_i\ \forall\,i\in\{0,1,\dots,n\}$ but $\exists\,q_0 \in X$
+    such that $g_1(q_0) \neq g_2(q_0)$.
+    \vspace{1ex}
+
+    \noindent
+    From Theorem \ref{thm:aff_lin_rep}, picking $p_0=A_0$,
+    $\exists!\,b_1,b_2 \in X$ such that $\forall\,q \in X$
+    \begin{align*}
+        g_1(p) = b_1 + \vec{g}_1(p-A_0) \\
+        g_2(p) = b_2 + \vec{g}_2(p-A_0)
+    \end{align*}
+    Since $g_1(A_0)=g_2(A_0)=B_0$, we have $b_1=b_2$. Further using
+    \[ g_1(A_i)=g_2(A_i)=B_i\ \forall\,i\in\{1,2,\dots,n\} \]
+    we get the relations
+    \[ \vec{g}_1(\vec{v}_i)=\vec{g}_2(\vec{v}_i)\ \forall\,i\in\{1,2,\dots,n\} \]
+    But note that $\beta_1$ is a basis of $\vec{X}$. Thus for any
+    $\vec{a}\in\vec{X}$, we have scalars $c_1,\dots,c_n$ such that
+    $\vec{a}=c_1\vec{v}_1+\dots+c_n\vec{v}_n$. Hence,
+    \begin{align*}
+        \vec{g}_1(\vec{a}) = c_1\vec{g}_1(\vec{v}_1)+\dots+c_n\vec{g}_1(\vec{v}_2)
+        = c_1\vec{g}_2(\vec{v}_1)+\dots+c_n\vec{g}_2(\vec{v}_2)
+        = \vec{g}_2(\vec{a})\ \forall\,\vec{a}\in\vec{X}
+    \end{align*}
+    So, $b_1=b_2$ and $\vec{g}_1=\vec{g}_2$. But this contradicts that
+    $\exists\,q_0 \in X: g_1(q_0) \neq g_2(q_0)$. Hence, $g_1=g_2$.
+\end{proof}
+
+Intuitively, this theorem says that there exists an affine transformation in
+$\GA(X)$ which takes an $n$-simplex in an affine space $X$ with $\dim \vec{X}=n$
+to another $n$-simplex in $X$. Note that an $n$-simplex is a generalization of the
+concept of triangles and tetrahedra in 2D and 3D respectively. In particular, a
+triangle is a 2-simplex and a tetrahedron is a 3-simplex. So, if we consider the
+affine space $\mathbb{R}^2$, this theorem says that there is an affine
+transformation that takes any triangle to any other triangle. We can also state it
+as
+\vspace{1ex}
+
+\begin{center}
+    \emph{``All triangles in $\mathbb{R}^2$ are affine-congruent."}
+\end{center}
+\vspace{1ex}
+
+\noindent
+In general, we say two figures are affine-congruent if there is an invertible
+affine transformation taking one to the other.
