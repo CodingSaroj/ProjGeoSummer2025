@@ -1,13 +1,18 @@
 \documentclass[a4paper,12pt]{report}
+\usepackage{amsmath,amsthm,amssymb,graphicx,float,tikz,tkz-euclide,geometry,hyperref}
 
-\usepackage{amsmath,amsthm,amssymb,graphicx,float,tikz,tkz-euclide,geometry}
+\hypersetup{
+  hidelinks,
+  colorlinks,
+  allcolors = black
+}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
 
 \begin{document}
 
-\title{\Huge \textbf{Geometry}}
+\title{\Huge\textbf{Projective Geometry}}
 \author{Tejaswi\\[1cm]{\small Advisor: Dr. Steven Spallone}}
 \date{Summer 2025}
 \maketitle
@@ -23,5 +28,8 @@
 \input{chapters/chapter-2.tex}
 \input{chapters/chapter-3.tex}
 \input{chapters/chapter-4.tex}
+
+\bibliographystyle{alpha}
+\bibliography{main}
 
 \end{document}

@@ -1,0 +1,22 @@
+\begin{thebibliography}{BEG12}
+
+\bibitem[Aud02]{audin}
+Michele Audin.
+\newblock {\em Geometry}.
+\newblock Universitext. Springer-Verlag, 2002.
+
+\bibitem[BEG12]{brannan}
+David~A. Brannan, Matthew~F. Esplen, and Jeremy~J. Gray.
+\newblock {\em Geometry}.
+\newblock Cambridge University Press, second edition, 2012.
+
+\bibitem[Shi09]{shirali}
+Shailesh Shirali.
+\newblock Groups associated with conics.
+\newblock {\em The Mathematical Gazette}, March 2009.
+
+\bibitem[Spa]{spallone}
+Steven Spallone.
+\newblock Introduction to curves.
+
+\end{thebibliography}
