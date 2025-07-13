@@ -1,7 +1,9 @@
 \chapter{Conics}
 
-A conic section, a conic, or a quadratic curve is a curve obtained from a cone's surface
-intersecting a plane.
+\begin{definition}
+  A conic section, a conic, or a quadratic curve is a curve obtained from a cone's surface
+  intersecting a plane.
+\end{definition}
 
 \section{Dandelin Spheres}
 
@@ -10,8 +12,8 @@ proof to demonstrate that any plane that cuts through a right circular cone prod
 quadratic curve.
 
 \begin{theorem}
-  When a plane intersects a right circular cone, the curve produced will either be an ellipse,
-  a parabola or a hyperbola.
+  When a plane intersects a right circular cone, the curve produced will either be an ellipse, a
+  parabola or a hyperbola.
 \end{theorem}
 
 \begin{proof}
@@ -28,43 +30,46 @@ quadratic curve.
   right angled. Denote $\angle PLM$ as $\alpha$, and $\angle PDM$ as $\beta$.
 
   From the triangles  $\triangle PML$ and $\triangle PMD$
-    \begin{eqnarray*}
+  \begin{eqnarray*}
     \sin{\alpha}&=&\frac{PM}{PD}\\ 
     \quad \textrm{and} \quad \sin{\beta}&=&\frac{PM}{PL}\\
     \quad \textrm{i.e.} \quad \frac{PL}{PD}&=&\frac{\sin{\alpha}}{\sin{\beta}}
   \end{eqnarray*}
 
-  \begin{figure}[H]
+  \begin{figure}[h]
     \center
     \includegraphics[width=0.85\linewidth]{dandelin.png}
-    \caption{When $0<\alpha<\beta<\frac{\pi}{2}$}
+    \caption{When $0<\alpha<\beta<\frac{\pi}{2}$. Figure from \cite{brannan}}
   \end{figure}
 
-
- 
   Since $PL$ and $PF$ are both tangents from $P$ to the sphere, $PF=PL$. Therfore,
   \[\frac{PF}{PD}=\frac{\sin{\alpha}}{\sin{\beta}}\]
   i.e. $PF=e\cdot PD$, where $e=\sin{\alpha}/\sin{\beta}$\\
   It follows from the focus - directrix definition that $Q$ will be an ellipse if
   $\alpha<\beta$, a parabola if $\alpha=\beta$, or a hyperbola if $\alpha>\beta$.
 \end{proof}
-Proof adapted from \cite{brannan} with modifications to generalize it for all conics.
+
+\begin{remark}
+  Proof adapted from \cite{brannan} with modifications to generalize it for all conics.
+\end{remark}
 
 \section{Group Laws on Conics}
 
-Consider a conic section $C$ and a point $O \in C$ For any $P,Q \in C$,define a binary
-operation $\oplus :C \times C \rightarrow C$ by $P \oplus Q = R$, where $R$ is such that $l_{PQ} \Vert l_{OR}$.
+Consider a conic section $C: \{f(x)=0, f(x)\in \F[x]\}$, where $deg(f(x))=2$, and $ch(\F)\ne 2$,
+and a point $O \in C$ For any $P,Q \in C$,define a binary operation
+$\oplus :C \times C \rightarrow C$ by $P \oplus Q = R$, where $R$ is such that
+$l_{PQ} \Vert l_{OR}$.
 
 \begin{theorem}
-Set of points of $C$ forms a group $G(C)$ under the binary operation $\oplus$, with $O$ as the
-identity element.
+  Set of points of $C$ forms a group $G(C)$ under the binary operation $\oplus$, with $O$ as the
+  identity element.
 \end{theorem}
 
 \begin{proof}\textbf{Closure:} The line through $O$ parallel to $l_{PQ}$ necessarily meets $C$
   again, (counting algebraic multiplicities) since for any quadratic equation with real 
   coeffecients, if one of the roots is real, the other one must be real too. \vspace{10pt}
 
-  \textbf{Existence of Identity Element:} The point $O$ serves as the identity element. \vspace{0pt}
+  \textbf{Existence of Identity Element:} The point $O$ serves as the identity element.\vspace{10pt}
 
   \textbf{Existence of Inverse:} Constructively, when $Q$ is such that the line parellel to
   $l_{PQ}$ that passes through $O$ is tangent to the conic, i.e when $R=O$, we get
@@ -84,26 +89,27 @@ identity element.
   $\Rightarrow$ $r_2=o_2+\mu(q_2-p_2)$ and $r_1=o_1+\mu(q_1-p_1)$ for some $\mu\in\mathbb{F}$.
 
   \begin{itemize}
-    \item[(i)]{\textbf{Circle}\\
+    \item[(i)]{
+        \textbf{Circle}\\
         Without loss of generality, let $O=(1,0)$. Since $R$ also lies on $C$,
         $r_1^2+r_2^2=1$. i.e.
 
         \begin{eqnarray*}
           &&(1+\mu(q_1-p_1))^2+(0+\mu(q_2-p_2))^2=1\\
-          \Rightarrow && \mu(\mu(q_1-p_1)^2+\mu(q_2-p_2)^2+2(q_1-p_1))=0\\
-          \Rightarrow && \mu=0\text{ or }\mu=-\frac{2(q_1-p_1)}{(q_1-p_1)^2+(q_2-p_2)^2}
+          \Longrightarrow&& \mu(\mu(q_1-p_1)^2+\mu(q_2-p_2)^2+2(q_1-p_1))=0\\
+          \Longrightarrow&& \mu=0\text{ or }\mu=-\frac{2(q_1-p_1)}{(q_1-p_1)^2+(q_2-p_2)^2}
         \end{eqnarray*}
 
-        We assume that $(q_1-p_1)^2+(q_2-p_2)^2\not=0$. Because if it was so,
+        We assume that $(q_1-p_1)^2+(q_2-p_2)^2\ne0$. Because if it was so,
 
         \begin{eqnarray*}
           &&q_1^2+p_1^2-2q_1p_1+q_2^2+p_2^2-2p_2q_2=0\\
-          \Rightarrow&&1-p_1q_1-p_2q_2=0\\
-          \Rightarrow&&p_1^2q_1^2=1+p_2^2q_2^2-2p_2q_2\\
-          \Rightarrow&&p_1^2q_1^2=1+(1-p_1^2)(1-q_1^2)-2p_2q_2\\
-          \Rightarrow&&0=2-p_1^2-q_1^2-2p_2q_2\\
-          \Rightarrow&&(p_2-q_2)^2=0\\
-          \Rightarrow&&p_2=q_2\text{ and similarly, }p_1=q_1
+          \Longrightarrow&& 1-p_1q_1-p_2q_2=0\\
+          \Longrightarrow&& p_1^2q_1^2=1+p_2^2q_2^2-2p_2q_2\\
+          \Longrightarrow&& p_1^2q_1^2=1+(1-p_1^2)(1-q_1^2)-2p_2q_2\\
+          \Longrightarrow&& 0=2-p_1^2-q_1^2-2p_2q_2\\
+          \Longrightarrow&& (p_2-q_2)^2=0\\
+          \Longrightarrow&& p_2=q_2\text{ and similarly, }p_1=q_1
         \end{eqnarray*}
 
         Which is when $P=Q$, which we have assummed not to be true.
@@ -131,66 +137,68 @@ identity element.
         The $\mu=0$ solution corresponds to $O$. Considering the other solution,
 
         \begin{eqnarray*}
-          r_1&=&1-\frac{2(q_1-p_1)^2}{(q_1-p_1)^2+(q_2-p_2)^2}\\
-             &=&\frac{(q_2-p_2)^2-(q_1-p_1)^2}{(q_1-p_1)^2+(q_2-p_2)^2}\\
-             &=&\frac{q_2^2+p_2^2-2p_2q_2-q_1^2-p_1^2+2p_1q_1}{2(1-p_1q_1-p_2q_2)}\\
-             &=&\frac{1-p_1^2-q_1^2+p_1q_1-p_2q_2}{1-p_1q_1-p_2q_2}\\
-             &=&\frac{(p_1q_1-p_2q_2)(1-p_1q_1-p_2q_2)}{1-p_1q_1-p_2q_2}\\
-             &=&p_1q_1-p_2q_2\\
+          r_1&=& 1-\frac{2(q_1-p_1)^2}{(q_1-p_1)^2+(q_2-p_2)^2}\\
+             &=& \frac{(q_2-p_2)^2-(q_1-p_1)^2}{(q_1-p_1)^2+(q_2-p_2)^2}\\
+             &=& \frac{q_2^2+p_2^2-2p_2q_2-q_1^2-p_1^2+2p_1q_1}{2(1-p_1q_1-p_2q_2)}\\
+             &=& \frac{1-p_1^2-q_1^2+p_1q_1-p_2q_2}{1-p_1q_1-p_2q_2}\\
+             &=& \frac{(p_1q_1-p_2q_2)(1-p_1q_1-p_2q_2)}{1-p_1q_1-p_2q_2}\\
+             &=& p_1q_1-p_2q_2\\
           \text{and, }
-          r_2&=&-\frac{2(q_1-p_1)(q_2-p_2)}{(q_1-p_1)^2+(q_2-p_2)^2}\\
-             &=&\frac{p_2q_2+p_2q_1-p_1p_2-q_1q_2}{1-p_1q_1-p_2q_2}\\
-             &=&\frac{(p_1q_2+p_2q_1)(1-p_1q_1-p_2q_2)}{1-p_1q_1-p_2q_2}\\
-             &=&p_1q_2+p_2q_1
+          r_2&=& -\frac{2(q_1-p_1)(q_2-p_2)}{(q_1-p_1)^2+(q_2-p_2)^2}\\
+             &=& \frac{p_2q_2+p_2q_1-p_1p_2-q_1q_2}{1-p_1q_1-p_2q_2}\\
+             &=& \frac{(p_1q_2+p_2q_1)(1-p_1q_1-p_2q_2)}{1-p_1q_1-p_2q_2}\\
+             &=& p_1q_2+p_2q_1
         \end{eqnarray*}
 
-        $$\Rightarrow R=P\oplus Q=(r_1,r_2)=(p_1q_1-p_2q_2,p_1q_2+p_2q_1)$$
+        $$\Longrightarrow R=P\oplus Q=(r_1,r_2)=(p_1q_1-p_2q_2,p_1q_2+p_2q_1)$$
 
         Using this formula, it can be proved that $(P\oplus Q)\oplus R=P\oplus(Q\oplus R)$.
       }
+    \item[(ii)]{
+        \textbf{Parabola}\\
+        Without loss of generality, let $O=(0,0)$. The points of the standard parabloa can
+        be parameterized as $(t,t^2)$. Let $P=(p,p^2)$, $Q=(q,q^2)$, and $R=(r,r^2)$.
+        Substituting these in $\lambda$,
 
-    \item[(ii)]{\textbf{Parabola}\\
-      Without loss of generality, let $O=(0,0)$. The points of the standard parabloa can
-      be parameterized as $(t,t^2)$. Let $P=(p,p^2)$, $Q=(q,q^2)$, and $R=(r,r^2)$.
-      Substituting these in $\lambda$,
-
-      \begin{eqnarray*}
-        \lambda&=&\frac{r^2}{r}=\frac{q^2-p^2}{q-p} \Rightarrow r=p+q \\
-        &\Rightarrow&P\oplus Q=(p+q,(p+q)^2)
-      \end{eqnarray*}
-
-      Since the parameters just get added, it can be easily proved that\\
-      $P\oplus(Q\oplus R)=(P\oplus Q)\oplus R$
-
-      \begin{figure}[H]
-        \center
-        \begin{tikzpicture}
-          \draw[domain=-2.25:2.25] plot (\x, {(\x)^2});
-          \tkzDefPoint(0,0){C}
-          \tkzDefPoint(0,0){O}
-          \tkzDefPoint(-2,4){P}
-          \tkzDefPoint(1,1){Q}
-          \tkzDefPoint(-1,1){R}
-          \tkzDrawPoints[fill=black](O,P,Q,R)
-          \tkzDrawLine[<->, line width=0.5, add=0.2 and 0.2](P,Q)
-          \tkzDrawLine[<->, line width=0.5, add=0.2 and 0.2](O,R)
-          \tkzLabelPoints[below left](O)
-          \tkzLabelPoints[above right](Q)
-          \tkzLabelPoints[below left](P)
-          \tkzLabelPoints[below left](R)
-        \end{tikzpicture}
-        \caption{$R = P \oplus Q$ when $C$ is a parabola.}
-      \end{figure}
+        \begin{eqnarray*}
+          \lambda&=& \frac{r^2}{r}=\frac{q^2-p^2}{q-p}\\
+          &\Longrightarrow& r=p+q \\
+          &\Longrightarrow& P\oplus Q=(p+q,(p+q)^2)
+        \end{eqnarray*}
+  
+        Since the parameters just get added, it can be easily proved that\\
+        $P\oplus(Q\oplus R)=(P\oplus Q)\oplus R$
+ 
+        \begin{figure}[H]
+          \center
+          \begin{tikzpicture}
+            \draw[domain=-2.25:2.25] plot (\x, {(\x)^2});
+            \tkzDefPoint(0,0){C}
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(-2,4){P}
+            \tkzDefPoint(1,1){Q}
+            \tkzDefPoint(-1,1){R}
+            \tkzDrawPoints[fill=black](O,P,Q,R)
+            \tkzDrawLine[<->, line width=0.5, add=0.2 and 0.2](P,Q)
+            \tkzDrawLine[<->, line width=0.5, add=0.2 and 0.2](O,R)
+            \tkzLabelPoints[below left](O)
+            \tkzLabelPoints[above right](Q)
+            \tkzLabelPoints[below left](P)
+            \tkzLabelPoints[below left](R)
+          \end{tikzpicture}
+          \caption{$R = P \oplus Q$ when $C$ is a parabola.}
+        \end{figure}
       }
-
-    \item[(iii)]{\textbf{Hyperbola}\\
+    \item[(iii)]{
+        \textbf{Hyperbola}\\
         Without loss of generality, let $O=(1,1)$.The points of the standard hyperbola can
         be parameterized as $(t,\frac{1}{t})$. Let $P=(p,\frac{w}{p})$, $Q=(q,\frac{1}{q})$,
         and $R=(r,\frac{1}{r})$. Substituting these in $\lambda$,
 
         \begin{eqnarray*}
-          \lambda&=&\frac{\frac{1}{r}-1}{r-1}=\frac{\frac{1}{q}-\frac{1}{p}}{p-q} \Rightarrow r=pq\\
-          &\Rightarrow&P\oplus Q=(pq,\frac{1}{pq})
+          \lambda&=& \frac{\frac{1}{r}-1}{r-1}=\frac{\frac{1}{q}-\frac{1}{p}}{p-q}\\
+          &\Longrightarrow& r=pq\\
+          &\Longrightarrow& P\oplus Q=(pq,\frac{1}{pq})
         \end{eqnarray*}
 
         \begin{figure}[H]
@@ -219,6 +227,29 @@ identity element.
       }
   \end{itemize}
 \end{proof}
-Proof adapted from \cite{shirali} with a formula based field independent proof for associativity.
 
-\section{Generating solutions for algebraic equations}
+\begin{remark}
+  Proof adapted from \cite{shirali} with a formula based field independent proof for
+  associativity.
+\end{remark}
+
+\section{Generating Solutions for Diophantine Equations}
+
+Consider the conic $C={(x,y)\in\Q\vert x^2+y^2=1}$, and $P=(1,0)\in C$. Let $l_m$ be the line
+with slope $m\in Q$, passing through $P$ and another point $Q=(x,y)\in C$. The coorrdinates
+of $Q$ can be found by substituting $y=m(x-1)$.
+$$x^2+m^2(x-1)^2-1=(1+m^2)x^2-2m^2x-(1-m^2)=0$$
+using the quadratic formula,
+$$x=\frac{m^2\pm1}{1+m^2}$$
+using the non-trivial solution, we get $x=\frac{m^2-1}{m^2+1}$ and $y=\frac{-2m}{m^2+1}$.
+substiting these values in the equation for the conic,
+
+\begin{eqnarray*}
+  (\frac{m^2-1}{m^2+1})^2+(\frac{-2m}{m^2+1})^2=1\\
+  \Longrightarrow (m^2-1)^2+(2m)^2=(m^2+1)^2
+\end{eqnarray*}
+
+This equation will produce integer solutions for $x^2+y^2=1$, though not all of them. Similarly
+rational or integer solutions for any equations of the form $ax^2+by^2=c$, where $a,b,c\in Q$.
+
+\section{Conics in Fields of Charecteristic 2}

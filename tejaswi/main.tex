@@ -3,33 +3,49 @@
 
 \hypersetup{
   hidelinks,
-  colorlinks,
-  allcolors = black
 }
 
-\newtheorem*{theorem}{Theorem}
+\hyphenpenalty=10000
+
+\theoremstyle{definition}
 \newtheorem*{definition}{Definition}
 
+\theoremstyle{definition}
+\newtheorem*{ex}{Ex}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newtheorem*{theorem}{Theorem}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+
 \begin{document}
+  \title{\Huge\textbf{Projective Geometry}}
+  \author{Tejaswi\\[1cm]{\small Advisor: Dr. Steven Spallone}}
+  \date{Summer 2025}
+  \maketitle
 
-\title{\Huge\textbf{Projective Geometry}}
-\author{Tejaswi\\[1cm]{\small Advisor: Dr. Steven Spallone}}
-\date{Summer 2025}
-\maketitle
+  \pagenumbering{roman}
 
-\pagenumbering{roman}
+  \tableofcontents
+  \newpage
 
-\tableofcontents
-\newpage
+  \pagenumbering{arabic}
 
-\pagenumbering{arabic}
+  \input{chapters/chapter-1.tex}
+  \input{chapters/chapter-2.tex}
+  \input{chapters/chapter-3.tex}
+  \input{chapters/chapter-4.tex}
 
-\input{chapters/chapter-1.tex}
-\input{chapters/chapter-2.tex}
-\input{chapters/chapter-3.tex}
-\input{chapters/chapter-4.tex}
-
-\bibliographystyle{alpha}
-\bibliography{main}
+  \bibliographystyle{alpha}
+  \bibliography{main}
 
 \end{document}
