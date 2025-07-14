@@ -1,0 +1,163 @@
+\chapter{Some Algebra}
+
+\section{Groups, Rings and Fields}
+
+\subsection{Groups}
+
+\begin{definition}
+  A \textit{group} is an ordered pair $(G,\ast)$ where $G$ is a set and $\ast$ is a binary
+  operation on $G$ satisfying the following axioms:
+
+  \begin{itemize}
+    \item[(i)]{
+        $(a\ast b)\ast c=a\ast(b\ast c)\forall a,b\in G$,
+      }
+    \item[(ii)]{
+        $\exists e\in G$, called identity of $G$, such that $\forall a\in G$ we have
+        $a\ast e=e\ast a=a$,
+      }
+    \item[(iii)]{
+        for each $a\in G$, $\exists a^{-1}\in G$, called inverse of $a$, such that
+        $a\ast a^{-1}=a^{-1}\ast a=e$,
+      }
+  \end{itemize}
+
+  The group is called abelian is $a\ast b=b\ast a\forall a,b\in G$. \cite{dummit}
+\end{definition}
+
+\begin{ex}
+  $\Z$, $\Q$, $\R$, and $\C$ are groups under $+$ with $e=0$, and $a^{-1}=-a$ for all $a$, and
+  $\Q-\{0\}$, $\R-\{0\}$, and $\C-\{0\}$ are groups under $\times$ with $e=1$ and
+  $a^{-1}=\frac{1}{a}$ for all $a$.
+\end{ex}
+
+\begin{remark}
+  If $G$ is a group under the opertaion $\ast$, then
+
+  \begin{enumerate}
+    \item{
+        the identity of $G$ is unique,
+      }
+    \item{
+        for each $a\in G$, $a^{-1}$ is uniquely determined,
+      }
+    \item{
+        $(a^{-1})^{-1}=a$ for all $a\in G$,
+      }
+    \item{
+        $(a\ast b)^{-1}=b^{-1}\ast a^{-1}$,
+      }
+    \item{
+        for any $a_1,a_2,\ldots,a_n\in G$, the value of $a_1\ast a_2\ast\ldots\ast a_n$ is
+        independent of how the expression is bracketed,
+      }
+    \item{
+      if $a\ast u=a\ast v$, then $u=v$, and if $u\ast b=v\ast b$, then $u=v$.
+      }
+  \end{enumerate}
+
+\end{remark}
+
+\begin{definition}
+  Let $(G,\ast)$ and $(H,\diamond)$ be groups. A map $\phi:G\rightarrow H$ such that
+  $\phi(x\ast y)=\phi(x)\diamond\phi(y)$ for all $x,y\in G$ is called a \textit{homomorphism}.
+  The map is called an \textit{isomorphism} and $G$ and $H$ are said to be \textit{isomorphic},
+  written $G\cong H$, if $\phi$ is a bijective homomorphism. \cite{dummit}
+\end{definition}
+
+\begin{ex}
+  For any group $G$, $G\cong G$. The identity map provides an obviuos isomorphism.\\
+  - The exponentiation map $exp:\R\rightarrow \R^+$ defined by $exp(x)=e^x$, is an isomorphism
+  from $(\R,+)$ to $(\R^+,\times)$.
+\end{ex}
+
+\subsection{Fields}
+
+\begin{definition}
+  A \textit{field} is a set $F$ together with two binary operations $+$ and $\times$ such that
+  $(F,+)$ is an abelian group and $(F-\{0\},\times)$ is also an an abelian group, and the
+  following distribution law holds: $a\times(b+c)=(a\times b)+(a\times c)$ for all $a,b,c\in F$.
+  \cite{dummit}
+\end{definition}
+
+\begin{ex}
+  With usual addition and multiplication, $\Q$ and $\R$ are fields.\\
+   - $\Z/p\Z$, where $p$ is a prime, with modular addition and multiplication, is a finite
+  field.
+\end{ex}
+
+\begin{remark}
+  For any field $F$ if $\vert F\vert <\infty$, then $\vert F\vert = p^m$ for some prime $p$
+  and some interger $m$.
+\end{remark}
+
+\begin{definition}
+  The \textit{charfecteristic} of a field $F$, denoted by $ch(F)$, is defined to be the smallest
+  positive integer $p$ such that $p\cdot 1_F=0$ if such $p$ exists, and defined to be zero
+  otherwise. \cite{dummit}
+\end{definition}
+
+\begin{remark}
+  The charecteristic of a field $F$, $ch(F)$, is either $0$ or a prime $p$.
+\end{remark}
+
+\subsection{Rings}
+
+\begin{definition}
+  A \textit{ring} $R$ is a set together with two binary operations $+$ and $\times$ satisfying
+  the following axioms
+
+  \begin{itemize}
+    \item[(i)]{
+        $(R,+)$ is an abelian group,
+      }
+    \item[(ii)]{
+        $\times$ is associative: $(a\times b)\times c=a\times(b\times c)$ for all $a,b,c\in R$,
+      }
+    \item[(iii)]{
+        the distributive laws hold in $R$: for all $a,b,c\in R$,
+        $(a+b)\times c=(a\times c)+(b\times c)$ and $a\times(b+c)=(a\times b)+(a\times c)$
+      }
+  \end{itemize}
+
+  The ring $R$ is coommutative if $R$ is commutative. $R$ is said to have an identity if there
+  is an element $1\in R$ with $1\times a=a\times 1$ for all $a\in R$. \cite{dummit}
+\end{definition}
+
+\begin{ex}
+  All fields are obviously rings.\\
+   - The simplest rings are \textit{trivial rings}, obtained by taking $R$ to be any abelian
+  group and defining multiplication $\times$ on $R$ by $a\times b=0$ for all $(a,b)\in R$.
+  \textit{trivial rings} are also commutative, as obviuos from the definition.\\
+   - The ring of integers $\Z$ - under usual addition and multiplication is a commutative ring
+  with identity $1$.
+\end{ex}
+
+\section{Field Extensions}
+
+\begin{definition}
+  If $K$ is a field containing the subfield $F$, then $K$ is said to be an \textit{extension} of
+  $F$, denoted $K/F$. The field $F$ is sometimes called the base field of the extension.
+  \cite{dummit}
+\end{definition}
+
+\begin{definition}
+  The \textit{prime subfield} of a field $F$ is the subfield of $F$ generated by its
+  multiplicative identity $1_F$. It is isomorphic to either $\Q$(if $ch(F)=0$), or to
+  $\F_p$(if $ch(F)=p$). \cite{dummit}
+\end{definition}
+
+\begin{remark}
+  Every field $F$ is an extension of its prime subfield.
+\end{remark}
+
+\begin{definition}
+  The \textit{degree} of a field extension $K/F$, denoted $[K:F]$, is the dimension of $K$ as a
+  vector space over $F$. \cite{dummit}
+\end{definition}
+
+An important class of field extensions are those obtained by trying to solve equations over
+a field $F$. Famously, Gauss extended $\R$ in an attempt to solve the equation $x^2+1=0$.
+The new field generated by adjoining the roots of the equation $i$ and $-i$ to $\R$ is $\C$.
+Given any field $F$ and a polynomial $p(x)\in F[x]$, one can similarly extend it to form a field
+$K$, containing solution to the equation $p(x)=0$.

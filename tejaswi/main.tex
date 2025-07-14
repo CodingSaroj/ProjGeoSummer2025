@@ -1,9 +1,7 @@
 \documentclass[a4paper,12pt]{report}
 \usepackage{amsmath,amsthm,amssymb,graphicx,float,tikz,tkz-euclide,geometry,hyperref}
 
-\hypersetup{
-  hidelinks,
-}
+\hypersetup{hidelinks}
 
 \hyphenpenalty=10000
 
@@ -27,6 +25,9 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathbb{F}}
 
+\setcounter{chapter}{-1}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
 \begin{document}
   \title{\Huge\textbf{Projective Geometry}}
   \author{Tejaswi\\[1cm]{\small Advisor: Dr. Steven Spallone}}
@@ -40,10 +41,10 @@
 
   \pagenumbering{arabic}
 
+  \input{chapters/chapter-0.tex}
   \input{chapters/chapter-1.tex}
   \input{chapters/chapter-2.tex}
   \input{chapters/chapter-3.tex}
-  \input{chapters/chapter-4.tex}
 
   \bibliographystyle{alpha}
   \bibliography{main}

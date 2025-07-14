@@ -1,31 +1,46 @@
-\chapter{Affine Geometry}
+\chapter{Projective Geometry}
 
-\section{Affine Space}
+\section{The Projective Space}
+
+\section{Fundamental Theorem of Projective Geometry}
+
+\section{Some Theorems}
+
+\begin{theorem}[Desargues's Theorem]
+\end{theorem}
+
+\begin{proof}
+  Consider the figure
+  \begin{figure}[H]
+   \center
+   \includegraphics[width=0.85\linewidth]{desargues.png}
+   \caption{Figure from \cite{brannan}.}
+  \end{figure}
+\end{proof}
+
+\begin{remark}
+  Proof adapted from \cite{brannan}, with some modifications.
+\end{remark}
+
+\begin{theorem}[Pascal's Theorem]
+
+\end{theorem}
+
+\begin{proof}
+  Consider the figure
+  \begin{figure}[H]
+   \center
+   \includegraphics[width=\linewidth]{pascal.png}
+   \caption{Figure from \cite{yzeren}.}
+  \end{figure}
+\end{proof}
+
+\begin{remark}
+  Proof adapted from \cite{yzeren}.
+\end{remark}
+
+\section{Group Laws on Elliptic Curves}
 
 \begin{definition}
-  A set $\varepsilon$ is endowed with the structure of an affine space by a vector space $E$ and
-  a mapping $\Theta$ that associates a vector of $E$ with any ordered pair of points in
-  $\varepsilon$,
-
-  \begin{eqnarray*}
-    \varepsilon \times \varepsilon &\longrightarrow & E \\
-    (A,B) &\longmapsto & \overrightarrow{AB}
-  \end{eqnarray*}
-
-  such that:
-
-  \begin{itemize}
-    \item[-]{for any point $A$ of $\varepsilon$, the partial map $\Theta_A : B \mapsto
-        \overrightarrow{AB}$ is a bijection from $\varepsilon$ to $E$.}
-    \item[-]{for any points $A$, $B$, and $C$ in $\varepsilon$, we have $\overrightarrow{AB}=
-        \overrightarrow{AC}+\overrightarrow{CB}$.}
-  \end{itemize}
-
-  The vector space $E$ is the direction of $\varepsilon$, or its underlying vector space. The
-  elements of $\varepsilon$ are called points, and the dimension of the vector space $E$ is
-  called the dimension of $\varepsilon$. \cite{audin}\\
+  An elliptic curve is a non-empty, non-singular, degree 3 projective curve. \cite{spallone}
 \end{definition}
-
-\section{Fundamental Theorem of Affine Geometry}
-
-\section{Affine Congruence of Conics}
