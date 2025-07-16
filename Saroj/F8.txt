@@ -1,7 +1,21 @@
 [1, x, y, x*y, x^2, y^2, z3, z3*x, z3*y, z3*x*y, z3*x^2, z3*y^2, z3^2, (z3^2)*x, (z3^2)*y, (z3^2)*x*y, (z3^2)*x^2, (z3^2)*y^2]
 34748 irreducible polynomials found.
-32304 irreducible polynomials found.
-1000 irreducible polynomials found.
-45 irreducible polynomials found.
-[x*y + 1, y^2 + x, x*y + z3, x*y + (z3^2), x^2 + x + 1, x*y + (z3 + 1), x*y + (z3^2 + 1), x^2 + z3*x + 1, x^2 + (z3^2)*x + 1, x*y + y^2 + x, z3*x*y + y^2 + x, (z3^2)*x*y + y^2 + x, z3*x^2 + x*y + y, (z3^2)*x^2 + x*y + y, x^2 + x*y + y^2, x^2 + x*y + (z3^2)*y, x*y + (z3^2 + z3), (z3^2)*x^2 + x*y + (z3^2)*y, z3*x*y + y^2 + x + 1, x^2 + x*y + y^2 + 1, x^2 + x*y + z3*y + 1, x^2 + x*y + (z3^2)*y + 1, x*y + (z3^2 + z3 + 1), x^2 + (z3^2 + z3)*x + 1, x*y + y^2 + x + z3, x^2 + z3*x*y + y^2 + x, x^2 + (z3^2)*x*y + y^2 + x, x^2 + (z3^2 + 1)*x + z3, x^2 + (z3 + 1)*x + (z3^2), z3*x^2 + z3*x*y + y^2 + y, x^2 + x*y + y^2 + z3, x^2 + x*y + y^2 + z3*x, x^2 + x*y + y^2 + (z3^2)*x, x^2 + z3*x*y + y^2 + (z3^2), x*y + y^2 + x + (z3 + 1), x*y + y^2 + (z3 + 1)*x + 1, x^2 + z3*x*y + y^2 + x + 1, x^2 + x*y + y^2 + (z3 + 1), x^2 + x*y + y^2 + z3*x + 1, x^2 + x*y + y^2 + (z3^2)*x + 1, x^2 + z3*x*y + y^2 + (z3^2 + 1), (z3^2)*x^2 + (z3 + 1)*x*y + y^2 + x, x^2 + (z3^2 + z3 + 1)*x + z3, (z3^2 + z3)*x*y + y^2 + x + z3, x^2 + (z3^2 + z3)*x*y + y^2 + x + z3]
-Print graphs(y/n): 
+32304 irreducible polynomials upto swapping x and y.
+993 irreducible polynomials upto translation.
+23 irreducible polynomials upto invertible affine transformation.
+15 irreducible non-singular polynomials found.
+y^2 + x
+x*y + 1
+x*y + (z3 + 1)
+x*y + z3
+x*y + (z3^2 + z3 + 1)
+x*y + (z3^2 + z3)
+x*y + (z3^2 + 1)
+x*y + (z3^2)
+x^2 + x*y + y^2 + 1
+x^2 + x*y + y^2 + (z3 + 1)
+x^2 + x*y + y^2 + z3
+x^2 + x*y + y^2 + (z3^2 + z3 + 1)
+x^2 + x*y + y^2 + (z3^2 + z3)
+x^2 + x*y + y^2 + (z3^2 + 1)
+x^2 + x*y + y^2 + (z3^2)
