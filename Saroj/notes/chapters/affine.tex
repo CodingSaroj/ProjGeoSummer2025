@@ -90,6 +90,113 @@ $(c_1,\dots,c_n)$ in that frame.
     Hence, $b_1=b_2$.
 \end{proof}
 
+\section{Properties of Affine Transformations}
+
+\begin{definition}
+    Given $a,b \in X$, we define the line passing through $a$ and $b$ as
+    \[ \ell_{ab}:=\{a+t(b-a): t\in\mathbb{F}\} \]
+\end{definition}
+
+\begin{definition}
+    Two lines $\ell_{ab}$ and $\ell_{pq}$ are said to be parallel if
+    $b-a=k(p-q)$ for some $k\in\mathbb{F}$. We write this
+    as $\ell_{ab}\parallel\ell_{pq}$.
+\end{definition}
+
+\begin{theorem}
+    Consider $f\in\GA(X)$ and $\ell_{ab}$ for some $a,b \in X$. Then,
+    \[ \exists\,p,q \in X: f(\ell_{ab})=\ell_{pq} \]
+\end{theorem}
+
+\begin{proof}
+    Fixing $p_0=a$ in Theorem \ref{thm:aff_lin_rep}, we have $p \in X$ such that
+    \[ f(a+t(b-a))=p+\vec{f}(t(b-a))=p+t\vec{f}(b-a)\ \forall\,t\in\mathbb{F} \]
+    Since $\vec{v} \mapsto p+\vec{v}$ is a bijection, we have $q \in X$ such that
+    $q-p=\vec{f}(b-a)$. Thus
+    \[ f(a+t(b-a))=p+t(q-p)\ \forall\,t\in\mathbb{F} \]
+    i.e. $f(\ell_{ab})=\ell_{pq}$.
+\end{proof}
+
+The above theorem can be interpreted as the following statement:
+\vspace{1ex}
+
+\begin{center}
+    \fbox{\emph{Affine transformations take straight lines to straight lines.}}
+\end{center}
+\vspace{1ex}
+
+\begin{theorem}
+    For any $f\in\GA(X)$,
+    \[ \ell_{ab} \parallel \ell_{pq} \implies f(\ell_{ab}) \parallel f(\ell_{pq}) \]
+\end{theorem}
+
+\begin{proof}
+    Since $\ell_{ab}\parallel\ell_{pq}$, we have $b-a=k(q-p)$ for some
+    $k\in\mathbb{F}$. Using Theorem \ref{thm:aff_lin_rep}, we can write
+    \begin{align*}
+        f(\ell_{ab}) &= \{f(a + t(b-a)): t\in\mathbb{F}\} \\
+                     &= \{c + \vec{f}(a + t(b-a) - p_0): t\in\mathbb{F}\} \\
+                     &= \{c + \vec{f}((a-p_0)+t(b-a)): t\in\mathbb{F}\} \\
+                     &= \{c + \vec{f}(a-p_0) + t\vec{f}(b-a): t\in\mathbb{F}\}
+    \end{align*}
+    Similarily,
+    $f(\ell_{pq}) = \{c + \vec{f}(p - p_0) +t\vec{f}(q-p): t\in\mathbb{F}\}$.
+    Now,
+    \begin{align*}
+        b - a = k(q - p) \implies \vec{f}(b-a) = k\vec{f}(q - p)
+    \end{align*}
+    By definition, this means that $f(\ell_{ab}) \parallel f(\ell_{pq})$.
+
+\end{proof}
+
+The above theorem can be interpreted as the following statement:
+\vspace{1ex}
+
+\begin{center}
+    \fbox{\emph{Affine transformations take parallel lines to parallel lines.}}
+\end{center}
+\vspace{1ex}
+
+\noindent
+If the underlying vector space $\vec{X}$ of an affine space $X$ has a norm 
+$\norm{\cdot}$ defined on it, we have the following theorem:
+
+\begin{theorem}
+    Given $f\in\GA(X)$, a line $\ell_{ac}$ and any $b\in\ell_{ac}$ such that
+    $b \neq a$ and $b \neq c$, we have
+    \[ \frac{\norm{b-a}}{\norm{c-b}}=\frac{\norm{f(b)-f(a)}}{\norm{f(c)-f(b)}} \]
+\end{theorem}
+
+\begin{proof}
+    Since $b\in\ell_{ac}$, let $b=a+t_0(c-a)$. Now,
+    \begin{align*}
+        \frac{\norm{b-a}}{\norm{c-b}} = \frac{|t_0| \norm{c-a}}{|1-t_0|\norm{c-a}}
+                                      = \left|\frac{t_0}{1-t_0}\right|
+    \end{align*}
+    Using Theorem \ref{thm:aff_lin_rep} with $p_0=a$, we have
+    $f(x)=p+\vec{f}(x-a)$ for some $p \in X$. So,
+    \begin{align*}
+        f(a) &= p+\vec{f}(a-a) = p \\
+        f(b) &= p+\vec{f}(a+t_0 (c-a)-a) = p + t_0 \vec{f}(c-a) \\
+        f(c) &= p+\vec{f}(c-a) \\
+    \end{align*}
+    Hence,
+    \begin{align*}
+        \frac{\norm{f(b)-f(a)}}{\norm{f(c)-f(b)}}
+        = \frac{|t_0| \norm{\vec{f}(c-a)}}{|1-t_0|\norm{\vec{f}(c-a)}}
+        = \left|\frac{t_0}{1-t_0}\right|
+    \end{align*}
+\end{proof}
+
+The above theorem can be interpreted as the following statement:
+\vspace{1ex}
+
+\begin{center}
+    \fbox{\emph{Affine transformations preserve the ratio of distances of 3
+    collinear points.}}
+\end{center}
+\vspace{1ex}
+
 \section{Fundamental theorem of Affine Geometry}
 
 \begin{theorem}
@@ -162,7 +269,7 @@ as
 \vspace{1ex}
 
 \begin{center}
-    \emph{``All triangles in $\mathbb{R}^2$ are affine-congruent."}
+    \fbox{\emph{All triangles in $\mathbb{R}^2$ are affine-congruent.}}
 \end{center}
 \vspace{1ex}
 
