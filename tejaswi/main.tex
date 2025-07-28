@@ -5,16 +5,16 @@
 
 \hyphenpenalty=10000
 
-\theoremstyle{definition}
-\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{lemma}{Lemma}
 
 \theoremstyle{definition}
+\newtheorem*{definition}{Definition}
 \newtheorem*{ex}{Ex}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
-
-\newtheorem*{theorem}{Theorem}
 
 \renewcommand\qedsymbol{$\blacksquare$}
 
@@ -25,7 +25,6 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathbb{F}}
 
-\setcounter{chapter}{-1}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 \begin{document}
@@ -41,10 +40,10 @@
 
   \pagenumbering{arabic}
 
-  \input{chapters/chapter-0.tex}
-  \input{chapters/chapter-1.tex}
-  \input{chapters/chapter-2.tex}
-  \input{chapters/chapter-3.tex}
+  \input{chapters/basics.tex}
+  \input{chapters/conics.tex}
+  \input{chapters/affgeo.tex}
+  \input{chapters/projgeo.tex}
 
   \bibliographystyle{alpha}
   \bibliography{main}
