@@ -1,0 +1,93 @@
+\documentclass[12pt]{report}
+
+\usepackage{amsmath,amssymb,amsthm,bm,caption,float,geometry,graphicx,hyperref}
+\usepackage{mathrsfs,titlesec,tikz,tkz-euclide,wrapfig}
+
+\usepackage[math]{cellspace}
+\geometry{a4paper, margin=1in}
+
+\hypersetup{hidelinks}
+\hyphenpenalty=10000
+
+\title{Projective Geometry}
+\author{K Tejaswi, Niti Torphe, Ruchith R, Saroj Kumar \and Supervisor: Dr. Steven Spallone}
+\date{}
+
+\titleformat{\chapter}
+    [frame]
+    {\bfseries\Huge}
+    {\Large CHAPTER \thechapter}
+    {1ex}{\centering}[]
+
+\DeclareCaptionFormat{capfmt}{\textbf{#1 #2}#3}
+\captionsetup{format=capfmt}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem*{ex}{Ex}
+
+\theoremstyle{remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{remark}{Remark}
+
+\newcommand\conop{\oplus_{\vphantom{\dfrac{}{}}O}}
+\newcommand\tgrp[3]{\mathrm{#1}_{#2}(\mathbb{#3})}
+\newcommand\SO[2]{\tgrp{SO}{#1}{#2}}
+\newcommand\AffF[2]{\mathbb{A}^{#1}(\mathbb{#2})}
+\newcommand\Aff[1]{\mathbb{A}^{#1}}
+\newcommand\norm[1]{\left\lVert{#1}\right\rVert}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\A}{A}
+\DeclareMathOperator{\GA}{GA}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+
+\setlength{\cellspacetoplimit}{5pt}
+\setlength{\cellspacebottomlimit}{5pt}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+%% tejaswi
+%%
+%%\documentclass[a4paper,12pt]{report}
+%%\usepackage{amsmath,amsthm,amssymb,graphicx,float,tikz,tkz-euclide,geometry,hyperref}
+%%
+%%\hypersetup{hidelinks}
+%%
+%%\hyphenpenalty=10000
+%%
+%%\newtheorem*{theorem}{Theorem}
+%%\newtheorem*{prop}{Proposition}
+%%\newtheorem*{lemma}{Lemma}
+%%
+%%\theoremstyle{definition}
+%%\newtheorem*{definition}{Definition}
+%%\newtheorem*{ex}{Ex}
+%%
+%%\theoremstyle{remark}
+%%\newtheorem*{remark}{Remark}
+%%
+%%\renewcommand\qedsymbol{$\blacksquare$}
+%%
+%%\newcommand{\R}{\mathbb{R}}
+%%\newcommand{\Q}{\mathbb{Q}}
+%%\newcommand{\Z}{\mathbb{Z}}
+%%\newcommand{\C}{\mathbb{C}}
+%%\newcommand{\N}{\mathbb{N}}
+%%\newcommand{\F}{\mathbb{F}}
+%%
+%%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
