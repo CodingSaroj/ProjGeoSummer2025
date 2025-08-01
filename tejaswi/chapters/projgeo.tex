@@ -74,6 +74,18 @@ $F$ of $E$.
   $f:E\rightarrow E'$ with $p'\circ f=g\circ p$.
 \end{definition}
 
+\begin{prop}
+  The set of projective transformations from $P(E)$ to itself, $PGL(E)$, is a group under
+  composition.
+\end{prop}
+
+\begin{proof}
+  From the definitions, the projective transformation that descends from identity map of $E$
+  forms the identity of the group. For any projective tranformation $g$ that descends from a
+  linear isomorphism $f$, the transformation $g'$ that descends from $f^{-1}$ will act as its
+  inverse. Since functional composition obeys associativity, $PGL(E)$ is a group.
+\end{proof}
+
 \subsection{Homogeneous Coordinates and Projective Frames}
 
 Given a basis of vector space $E$, the vectors in $E$ can be descirbed by their coordinates with
@@ -125,7 +137,24 @@ justify the next definition.
 \section{Fundamental Theorem of Projective Geometry}
 
 \begin{theorem}[Fundamental Theorem of Projective Geometry]
+  \label{thm:fundprojgeo}
+  Let $(a_1,\ldots,a_{n+2})$ and $(b_1,\ldots,b_{n+2})$ be two sets of points in $\R\Ps^n$ such
+  that none of the $a_i$ and $b_i$ belong to the projective subspace defined by $n$ of the others
+  in their respective sets. Then there exists a unique projective transformation
+  $f:\R\Ps^n\rightarrow\R\Ps^n$ such that, $f(a_i)=b_i$ for all $i=1,\ldots,n+2$.
 \end{theorem}
+
+\begin{proof}
+  The set of points $(a_i)$ and $(b_i)$ are both projective frames of $\R\Pr^n$. Let
+  $(e_1,\ldots,e_{n+1}),(e'_1,\ldots,e'_{n+1})\in\R^{n+1}$ be the basis that generate the frames
+  $(a_i)$ and $(b_i)$ respectively. We know that there exists a unique isomorphism
+  $f:\R^{n+1}\rightarrow\R^{n+1}$ such that $f(e_i)=e'_i$. The projective transformation $g$
+  that descends from $f$ will map the first frame to the second.
+
+  To prove the uniqueness: let $f$ and $f'$ two such projcetive transformations. The projective
+  transormation $g^{-1}\circ g'$ from $\R\Pr^n$ into itself keeps the frame invariant. Thus
+  it is the identity transformation.
+\end{proof}
 
 \begin{theorem}[Desargues's Theorem]
   Let $\triangle ABC$ and $\triangle A'B'C'$ be triangles in $\R^2$ such that the lines $AA'$,
@@ -177,19 +206,75 @@ justify the next definition.
   i.e $P$, $Q$, and $R$ are colinear.
 \end{proof}
 
-Proof adapted from \cite{brannan}.
-
 \begin{prop}
-  There is a unique projective conic through any given set of five points.
+  There is a unique projective conic through any given set of five points, no three of which are
+  collinear.
 \end{prop}
 
 \begin{proof}
+ By the fundamental theorem of projective geometry, there exists a projective transformation
+ $t$ which maps the four out of given five points to the points $[1:0:0]$, $[0:1:0]$, $[0:0:1]$
+ and $[1:1:1]$. Let $[a:b:c]$ be the image of the fifth point under $t$. Since projective
+ transformations preserve collinearity, no three of the five points are collinear, and also
+ it can be deduced that $a$, $b$ and $c$ are nonzero, since if it were so, it would be collinear
+ with other two points.
+
+ Let the conic that passes through these 5 points be of the form
+ \[
+   Ax^2+Bxy+Cy^2+Fxz+Gyz+Hz^2
+ \]
+ By substituting the points $[1:0:0]$, $[0:1:0]$, and $[0:0:1]$, the equation can be reduced
+ to the form
+ \[
+   Bxy+Fxz+Gyz=0
+ \]
+ Since the porjective concic also passes through $[1:1:1]$ and $[a:b:c]$, we get the equations
+ \[
+   B+F+G=0
+ \]
+ and
+ \[
+   Bab+Fac+Gbc=0
+ \]
+ Solving these simultaneous equations, we get
+ \[
+   F=-G\frac{ab-bc}{ab-ac}
+ \]
+ and
+ \[
+   B= -G\frac{ac-bc}{ac-ab}
+ \]
+ It follows that the conic is of the form
+ \[
+   -G\frac{ac-bc}{ac-ab}xy-G\frac{ab-bc}{ab-ac}xz+Gyz=0
+ \]
+ or
+ \[
+   c(a-b)xy+b(c-a)xz+a(b-c)yz=0
+ \]
+ Since the conic is uniquely determined by the fifth point, it follows that it is unique.\\
 \end{proof}
 
-Proof adapted from \cite{brannan}.
-
 \begin{remark}
-  \textbf{The Standard Projective Conic}\\
+  \textbf{The Standard Projective Conic}
+
+  The projective conic $E=\{[x:y:z]:xy+yz+zx=0\}$ is called the standard projective conic.
+  It passes through the traingle of reference formed by the points $[1:0:0]$, $[0:1:0]$, and
+  $[0:0:1]$. This fact can be used to simplify calculations involving projcetive conics.
+
+  All the points on the conic except than $[1:0:0]$ can be parameterized as $[t^2+t:t+1:-t]$,
+  where $t\in\R$. All points on $E$ satisfy $xy+yz+zx=0$. Suppose $y\ne 0$, let $t=x/y$. Then
+  $x=ty$, and so
+
+  \begin{eqnarray*}
+    & (ty)y+yz+z(ty)=0 \\
+    \Longrightarrow & ty+(t+1)z=0 \\
+    \Longrightarrow & y=-\frac{t+1}{t}z, x=-(t+1)z
+  \end{eqnarray*}
+
+  Thus the point has homogeneous coordinates $\left[-(t+1)z:-\frac{t+1}{t}z:z\right]$, which can
+  be rewritten in the form $[t(t+1):t+1:-t]$. This also happens to hold for the point $[0:0:1]$,
+  where $y=0$.
 \end{remark}
 
 \begin{prop}
@@ -198,9 +283,43 @@ Proof adapted from \cite{brannan}.
   maps $E_1$ to $E_2$ such that $t(P_1)=P_2$, $t(Q_1)=Q_2$, and $t(R_1)=R_2$.
 \end{prop}
 
-Proof adapted from \cite{brannan}.
+\begin{proof}
+  We prove this result by proving that for any conic $E_1$, there exists a transormation $t_1$
+  which maps it to the standard conic $xy+yz+zx=0$ such that $t_1(P_1)=[1:0:0]$,
+  $t_2(Q_1)=[0:1:0]$, and $t_3(R_1)=[0:0:1]$ for any $P_1,Q_1,R_1\in E$.
+
+  Let $f$ be a transformation that maps $P_1$ to $[1:0:0]$, $Q_1$ to $[0:1:0]$, and $R_1$ to
+  $[0:0:1]$. It will map the conic $E_1$ into a conic $E'$ of the form
+  \[
+    Fxy+Gyz+Hzy=0
+  \]
+  for some $F,G,H\in\R$. Divide the equation by $FGH$ to rewrite $E'$ in the form
+  \[
+    \frac{xy}{GH}+\frac{yz}{FH}+\frac{zx}{FG}=0
+  \]
+  Now, let $g$ be the transformation of the form $g([x:y:z])=A[x:y:z]\forall[x:y:z]\in\R\Pr^3$
+  where $A$ is a $3\times 3$ matrix such that
+  \[
+    A=
+    \left(\begin{array}{ccc}
+      \frac{1}{H} & 0           & 0           \\
+      0           & \frac{1}{G} & 0           \\
+      0           & 0           & \frac{1}{F} \\
+    \end{array}\right)
+  \]
+  Then, $g$ maps $E'$ to the standrd conic $xy+yz+zx=0$, leaving $P$, $Q$, and $R$ unchanged.
+  Let $t_1=g\circ f$. Similarly, let $t_2$ be the function that maps the conic $E_2$ to the
+  standard conic such that $t_2(P_2)=[1:0:0]$, $t_2(Q_2)=[0:1:0]$, and $t_2(R_2)=[0:0:1]$
+  for any $P_2,Q_2,R_2\in E_2$.
+
+  The composite function $t=t_2^{-1}\circ t_1$ maps $E_1$ to $E_2$ such that $t(P_1)=P_2$,
+  $t(Q_1)=Q_2$, and $t(R_1)=R_2$, as required.
+\end{proof}
 
 \begin{theorem}[Pascal's Theorem]
+  Let $A$, $B$, $C$, $A'$, $B'$, and $C'$ be six distinct points on a non-degenrate projective
+  conic. Let $BC$ and $B'C$ intersect at $P$, $CA'$ and $C'A$ at $Q$, and $AB'$ at $R$. The
+  points $P$, $Q$, and $R$ are collinear.
 \end{theorem}
 
 \begin{figure}[H]
@@ -211,6 +330,24 @@ Proof adapted from \cite{brannan}.
 \end{figure}
 
 \begin{proof}
+  We know that any non-degenerate conic can pe transformed to the standard conic. Let the conic
+  be in the standard form $xy+yz+zx=0$, with $A=[1:0:0]$, $B=[0:1:0]$, and $C=[0:0:1]$. Let the
+  point $A'=[a^2+a:a+1:-a]$, $B'=[b^2+b:b+1:-b]$, and $C'=[c^2+c:c+1:-c]$, for some $a,b,c\in\R$
+
+  The line $BC'$ has the equation $x=-(c+1)z$, and the line $B'C$ has the equation $x=by$. The
+  point $P$ lies on both of these lines. Hence it has the homogeneous coordinates
+  $[b(c+1):c+1:-b]$. Similarly, $Q=[a(c+1):c+1:-c]$, and $R=[b(a+1):b+1:-b]$.
+
+  To check their collinearity, evaluate the determinant:
+  \[
+    \begin{vmatrix}
+      b(c+1) & c+1 & -b \\
+      a(c+1) & c+1 & -c \\
+      b(a+1) & b+1 & -b \\
+    \end{vmatrix}
+  \]
+  Which, after some row operations, simplifies to be equal to $0$.
+  Hence, the points $P$, $Q$, and $R$ are collinear.
 \end{proof}
 
 Proof adapted from \cite{brannan}.
@@ -232,7 +369,13 @@ Proof adapted from \cite{brannan}.
 \end{prop}
 
 \begin{proof}
-  Assume $f$ is a projective mapping that sends $a_i$ to $a'_i$. Let 
+  Assume $f$ is a projective mapping that sends $a_i$ to $a'_i$. Let $g$ and $g'$ be functions
+  such that $[a_1,a_2,a_3,a_4]=g(a_4)$, and $[a'_1,a'_2,a'_3,a'_4]=g'(a'_4)$. $g'\circ f$ is a
+  function, which maps $a_1$ to $\infty$, $a_2$ to $0$, and $a_3$ to $1$. But such function is
+  unique. Hence, $g=g'\circ f$, which implies that $g(a_4)=g'(a'_4)$. That is,
+  \[
+    [a_1,a_2,a_3,a_4]=[a'_1,a'_2,a'_3,a'_4]
+  \]
 \end{proof}
 
 \section{Elliptic Curves}
