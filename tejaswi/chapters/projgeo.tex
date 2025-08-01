@@ -83,7 +83,8 @@ $F$ of $E$.
   From the definitions, the projective transformation that descends from identity map of $E$
   forms the identity of the group. For any projective tranformation $g$ that descends from a
   linear isomorphism $f$, the transformation $g'$ that descends from $f^{-1}$ will act as its
-  inverse. Since functional composition obeys associativity, $PGL(E)$ is a group.
+  inverse. Since functional composition obeys associativity, $PGL(E)$ is a group under
+  composition.
 \end{proof}
 
 \subsection{Homogeneous Coordinates and Projective Frames}
@@ -265,7 +266,6 @@ justify the next definition.
   All the points on the conic except than $[1:0:0]$ can be parameterized as $[t^2+t:t+1:-t]$,
   where $t\in\R$. All points on $E$ satisfy $xy+yz+zx=0$. Suppose $y\ne 0$, let $t=x/y$. Then
   $x=ty$, and so
-
   \begin{eqnarray*}
     & (ty)y+yz+z(ty)=0 \\
     \Longrightarrow & ty+(t+1)z=0 \\
@@ -377,6 +377,75 @@ Proof adapted from \cite{brannan}.
     [a_1,a_2,a_3,a_4]=[a'_1,a'_2,a'_3,a'_4]
   \]
 \end{proof}
+
+\begin{remark} \textbf{Formulas for cross-ratio}\\
+  Let $a$, $b$, and $c$ be four points on the affine line, the first three being distinct. Then
+  \[
+    [a,b,c,d]=\frac{(d-b)(c-a)}{(d-a)(c-b)}
+  \]
+
+  Also, since the points $a$ and $b$ are distinct, $c$ and $d$ can be written as
+
+  \begin{eqnarray*}
+    c=\alpha a+\beta b \\
+    d=\gamma a+\delta b
+  \end{eqnarray*}
+
+  Then the cross-ratio
+  \[
+    [a,b,c,d]=\frac{\gamma\beta}{\alpha\delta}
+  \]
+\end{remark}
+
+\begin{prop}
+  If $a$, $b$, $c$, and $d$ are four collinear distinct points, then the folloeing equalities
+  hold
+  \begin{eqnarray*}
+    \left[a,b,c,d\right]+\left[a,c,b,d\right]=1 \\
+    \left[b,a,c,d\right]=\left[a,b,c,d\right]^{-1} \\
+    \left[a,b,d,c\right]=\left[a,b,c,d\right]^{-1}
+  \end{eqnarray*}
+\end{prop}
+
+\begin{proof}
+  Let $f$ be the function that defines the cross-ratio, such that $[a,b,c,d]=f(d)$, and let
+  $f'$ be a function such that $f'(x)=1-f(x)\forall x$. The composite function $f'\circ f$ maps
+  $a$ to $\infty$, $b$ to $0$, and $c$ to $1$. But the function that defines the cross-ratio
+  $[a,c,b,d]$ also maps $a$ to $\infty$, $b$ to $0$, and $c$ to $1$. Since such function is
+  unique,
+  \begin{eqnarray*}
+    [a,c,b,d] &=& f'\circ f(d) \\
+    \Longrightarrow [a,c,b,d] &=& 1-[a,b,c,d]
+  \end{eqnarray*}
+
+  Let $g$ be a function such that $g(x)=\frac{1}{f(x)}\forall x$. The composite function
+  $g\circ f$ maps $a$ to $0$, $b$ to $\infty$, and $c$ to $1$. Thus it is the function that
+  defines the cross-ratio $[b,a,c,d]$. That is,
+  \begin{eqnarray*}
+    [b,a,c,d] &=& g\circ f(d) \\
+    \Longrightarrow [b,a,c,d] &=& \frac{1}{f(d)} \\
+                              &=& [a,b,c,d]^{-1}
+  \end{eqnarray*}
+
+  Let $h$ be a function such that $h(x)=\frac{f(x)}{f(d)}\forall x$. The composite function
+  $h\circ f$ maps $d$ to $1$, keeping th eimages of $a$ and $b$ unchanged. Hence, it is the
+  defining function of the cross-ratio $[a,b,d,c]$. That is,
+  \begin{eqnarray*}
+    [a,b,d,c] &=& h\circ f(c) \\
+    \Longrightarrow [a,b,d,c] &=& \frac{f(c)}{f(d)} \\
+                              &=& [a,b,c,d]^{-1}
+  \end{eqnarray*}
+\end{proof}
+
+\begin{remark}
+  If $[a,b,c,d]=k$, the 24 cross-ratios obtained by permuting the four points take the general
+  six values:
+  \[
+    k \hspace{8pt},\hspace{8pt} \frac{1}{k} \hspace{8pt},
+    \hspace{8pt} 1-k \hspace{8pt},\hspace{8pt} 1-\frac{1}{k} \hspace{8pt},
+    \hspace{8pt} \frac{1}{1-k} \hspace{8pt},\hspace{8pt} \frac{k}{k-1}
+  \]
+\end{remark}
 
 \section{Elliptic Curves}
 
