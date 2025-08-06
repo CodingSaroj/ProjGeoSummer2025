@@ -31,7 +31,7 @@ theorem which will be used heavily throughout the chapter:
 \begin{proof}
     Suppose $|\F|=q$. Since $\ch(\F)=2$, $q$ is even. So, $|\F^\times|=q-1$ is
     odd. As $\F^\times$ is cyclic for any finite field $\F$
-    \cite[Ch.~9 Prop.~18]{dummit}, we have $\F^\times=\langle g \rangle$ for some
+    \cite[Prop.~9.18]{dummit}, we have $\F^\times=\langle g \rangle$ for some
     $g\in\F^\times$.
     \vspace{1ex}
 
@@ -163,6 +163,9 @@ $\langle\F,+\rangle$ and $\langle\F^\times,\cdot\rangle$.
 \noindent
 For Type III conics, we have to consider a quadratic field extension $\F(\alpha)$
 as a two dimensional vector space over $\F$ with an ordered basis $\{1,\alpha\}$.
+Note that such an $\alpha$ is guaranteed to exist as the finite field of order
+$|\F|^2$ has a subfield isomorphic to $\F$ since $|\F|\mid|\F|^2$
+\cite[\S14.3]{dummit}.
 Suppose $\alpha$ is the root of the equation $x^2 + bx + c$ and hence
 $\alpha^2 = b\alpha+c$.
 
