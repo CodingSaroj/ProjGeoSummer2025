@@ -324,8 +324,36 @@ justify the next definition.
 
 \begin{figure}[H]
   \center
-  \includegraphics[width=\linewidth]{pictures/pascal.png}
-  \caption{Figure from \cite{brannan}.}
+  \begin{tikzpicture}
+    \tkzDefPoint(0,0){Q}
+    \tkzDefPoint(-2,1.490712){A}
+    \tkzDefPoint(0,2){B}
+    \tkzDefPoint(2,1.490712){C}
+    \tkzDefPoint(-2,-1.490712){A'}
+    \tkzDefPoint(0,-2){B'}
+    \tkzDefPoint(2,-1.490712){C'}
+    \tkzDefPoint(1.13,0){P}
+    \tkzDefPoint(-1.13,0){R}
+    \tkzDrawEllipse[line width=1, black](Q,3,2,0)
+    \tkzDrawPoints[fill=black](A,B,C,A',B',C',P,Q,R)
+    \tkzDrawLine[black, add=0 and 0](A,B')
+    \tkzDrawLine[black, add=0 and 0](A,C')
+    \tkzDrawLine[black, add=0 and 0](B,A')
+    \tkzDrawLine[black, add=0 and 0](B,C')
+    \tkzDrawLine[black, add=0 and 0](C,B')
+    \tkzDrawLine[black, add=0 and 0](C,A')
+    \tkzDrawLine[dashed, add=0.5 and 0.5, black](P,R)
+    \tkzLabelPoints[above right, black](P)
+    \tkzLabelPoints[above, black](Q)
+    \tkzLabelPoints[above left, black](R)
+    \tkzLabelPoints[above left, black](A)
+    \tkzLabelPoints[above, black](B)
+    \tkzLabelPoints[above right, black](C)
+    \tkzLabelPoints[below left, black](A')
+    \tkzLabelPoints[below, black](B')
+    \tkzLabelPoints[below right, black](C')
+  \end{tikzpicture}
+  \caption{When the $E$ is an ellipse.}
   \label{fig:pascal}
 \end{figure}
 
@@ -453,3 +481,33 @@ Proof adapted from \cite{brannan}.
 \end{definition}
 
 \subsection{Group Laws on Conics}
+
+\begin{figure}[H]
+  \center
+  \begin{tikzpicture}
+    \tkzDefPoint(0,0){C}
+    \tkzDefPoint(0,{sqrt(3)}){P}
+    \tkzDefPoint(-2,1){Q}
+    \tkzDefPoint(2.1339745962,2.5131397208){R}
+    \tkzDefPoint(2.1339745962,-2.5131397208){R'}
+    \tkzDefPoint(0,2.5){y}
+    \tkzDefPoint(0,-2.5){y'}
+    \tkzDefPoint(3,0){x}
+    \tkzDefPoint(-2.25,0){x'}
+    \tkzDefPoint(-2.1037979125,0){E}
+    \tkzDrawPoints[fill=black](E,P,Q,R,R')
+    \tkzDrawLine[<->, line width=0.5, gray](y,y')
+    \tkzDrawLine[<->, line width=0.5, gray](x,x')
+    \tkzDrawLine[<->, line width=1, add=1.5 and 0.5,black](P,Q)
+    \draw[domain=-2.1037979125:2.25, smooth, line width=1, black]
+      plot (\x,{sqrt((\x)^3-3*\x+3))});
+    \draw[domain=-2.1037979125:2.25, smooth, line width=1, black]
+      plot (\x,{-sqrt((\x)^3-3*\x+3))});
+    \tkzLabelPoints[above right, black](P)
+    \tkzLabelPoints[above left, black](Q)
+    \tkzLabelPoints[below right, black](R)
+    \tkzLabelPoints[above right, black](R')
+  \end{tikzpicture}
+  \caption{ Elliptic curve in $E$ in Weirestrass form}
+\end{figure}
+
