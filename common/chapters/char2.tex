@@ -1,0 +1,212 @@
+\chapter{Conics in Characteristic 2 Fields} \label{ch:char2}
+
+Given a conic $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$, we've classified it by
+writing it in matrix form as
+\[
+    \begin{bmatrix}x & y\end{bmatrix}
+    \begin{bmatrix}A & \frac{1}{2}B \\ \frac{1}{2}B & C\end{bmatrix}
+    \begin{bmatrix}x \\ y\end{bmatrix}
+    +
+    \begin{bmatrix}D & E\end{bmatrix}
+    \begin{bmatrix}x \\ y\end{bmatrix}
+    + F = 0
+\]
+and diagonalizing the symmetric matrix to obtain an orthonormal basis within
+which, the conic only has no $xy$ term. However, this method no longer works if
+we're working in $\F^2$ such that $\ch(\F)=2$ as $1+1=2=0$ and hence, we
+can't divide by 2.
+
+\vspace{1ex}
+
+In this chapter, we'll classify the conics in finite fields with characteristic 2
+and investigate the conic groups that arise from them. We'll state the following
+theorem which will be used heavily throughout the chapter:
+
+\begin{theorem} \label{thm:field_sq}
+    If $\F$ is a finite field with $\ch(\F)=2$, then
+    $\forall\,a\in\F\ \exists\,b\in\F$ such that $b^2=a$. We'll write
+    $b=\sqrt{a}$.
+\end{theorem}
+
+\begin{proof}
+    Suppose $|\F|=q$. Since $\ch(\F)=2$, $q$ is even. So, $|\F^\times|=q-1$ is
+    odd. As $\F^\times$ is cyclic for any finite field $\F$
+    \cite[Prop.~9.18]{dummit}, we have $\F^\times=\langle g \rangle$ for some
+    $g\in\F^\times$.
+    \vspace{1ex}
+
+    Take any $a\in\F^\times$. Then, $a=g^k$ for some $k\in\Z/(q-1)\Z$. Now, $2$
+    has a multiplicative inverse in $\Z/(q-1)\Z$ since $q-1$ is odd. Hence,
+    $\exists\,b\in\F^\times$ such that $b=g^{2^{-1}k}$. It is easy to see that
+    $b^2=a$.
+\end{proof}
+
+\section{Classification}
+
+Consider a non-degenerate, non-singular conic in a finite characteristic 2 field
+$\F$ given by
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+where not all of $A,B$ and $C$ are zero.
+
+\subsection*{Case 1: $A \neq 0, B \neq 0$ and $C \neq 0$}
+
+Apply the affine transformation
+$(x,y)\mapsto\left(\frac{x}{\sqrt{A}},\frac{y}{\sqrt{C}}\right)$ and take
+$H=\frac{B}{\sqrt{A}\sqrt{C}}$ to get the following form
+\[ x^2 + Hxy + y^2 + \frac{D}{\sqrt{A}}x + \frac{E}{\sqrt{C}}y + F = 0 \]
+Further applying the affine transformation 
+$(x,y)\mapsto\left(x+\frac{E}{H\sqrt{C}},y+\frac{D}{H\sqrt{A}}\right)$ gives
+\[ x^2 + Hxy + y^2 + K = 0 \]
+where
+$K = F + \frac{D^2}{H^2 A} + \frac{E^2}{H^2 C} + \frac{DE}{H\sqrt{A}\sqrt{C}}$.
+Now, applying the affine transformation
+$(x,y)\mapsto\left(\frac{\sqrt{K}}{H}x,\frac{\sqrt{K}}{H}y\right)$ gives
+\[ \frac{K}{H^2}x^2 + \frac{K}{H^2}xy + \frac{K}{H^2}y^2 + K = 0\]
+We can multiply by $\frac{H^2}{K}$ since $K=0$ will make the conic singular. Thus,
+taking $L=H^2$ we have
+
+\begin{center}
+    \fbox{$x^2 + xy + y^2 + L = 0$}
+\end{center}
+
+\noindent
+where $L$ can be any non-zero element of $\F$ due to Theorem \ref{thm:field_sq}.
+
+\subsection*{Case 2: $A = 0, B \neq 0$ and $C \neq 0$}
+
+Apply the affine transformation $(x,y)\mapsto(x,x+y)$ to get
+\[ (B+C)x^2 + Bxy + Cy^2 + (D+E)x + Ey + F = 0 \]
+If $B \neq C$, we can proceed as Case 1. Otherwise, we have
+\[ Bxy + By^2 + Dx + Ey + F = 0\]
+Applying the affine transformation
+$(x,y)\mapsto\left(\frac{x}{\sqrt{B}},\frac{y}{\sqrt{B}}\right)$ and take
+$H=\frac{B}{\sqrt{C}}$ to get the following form
+\[ xy + y^2 + \frac{D}{\sqrt{B}}x + \frac{E}{\sqrt{B}}y + F = 0 \]
+Further applying the affine transformation 
+$(x,y)\mapsto\left(x+\frac{E}{\sqrt{B}},y+\frac{D}{\sqrt{B}}\right)$ gives
+\[ xy + y^2 + K = 0 \]
+where $K = F + \frac{D^2}{B} + \frac{DE}{B}$. Now, applying the affine
+transformation $(x,y)\mapsto(x+y,y)$ gives
+\[ xy + K = 0 \]
+We can now proceed as Case 3.
+
+\subsection*{Case 3: $A = 0, B \neq 0$ and $C = 0$}
+
+Applying the affine transformation
+$(x,y)\mapsto\left(x+\frac{E}{B},y+\frac{D}{B}\right)$ gives
+\[ Bxy + H = 0 \]
+where $H = F + \frac{DE}{B^2}$. Dividing by $B$ and taking $K=\frac{H}{B}$, we get
+\[ xy + K = 0\]
+Finally, applying the affine transformation $(x,y)\mapsto(\sqrt{K}x,\sqrt{K}y)$
+and dividing by $K$ ($K=0$ implies conic is singular) results in
+
+\begin{center}
+    \fbox{$xy + 1 = 0$}
+\end{center}
+
+\subsection*{Case 4: $A \neq 0, B = 0$ and $C \neq 0$}
+
+Apply the affine transformation
+$(x,y)\mapsto\left(\frac{x}{\sqrt{A}},\frac{y}{\sqrt{C}}\right)$ to get the
+following form
+\[ x^2 + y^2 + \frac{D}{\sqrt{A}}x + \frac{E}{\sqrt{C}}y + F = 0 \]
+Further applying the affine transformation $(x,y)\mapsto(x,x+y)$ gives
+\[ y^2 + Hx + Ky + F = 0 \]
+where $H=\left(\frac{D}{\sqrt{A}} + \frac{E}{\sqrt{C}}\right)$ and
+$K=\frac{E}{\sqrt{C}}$. We can proceed as Case 5 from here.
+
+\subsection*{Case 5: $A = 0, B = 0$ and $C \neq 0$}
+
+Applying the affine transformation
+$(x,y)\mapsto\left(x,\frac{y}{\sqrt{C}}\right)$ to get the
+following form
+\[ y^2 + Dx + \frac{E}{\sqrt{C}}y + F = 0 \]
+Note that since $D=0$ gives a quadratic equation in $y$, this case corresponds to
+a degenerate conic. Hence, we can assume $D \neq 0$. So, applying the affine
+transformation
+$(x,y)\mapsto\left(\frac{x}{D} + \frac{Ey}{D\sqrt{C}} + \frac{F}{D},y\right)$ gives
+
+\begin{center}
+    \fbox{$y^2 + x = 0$}
+\end{center}
+
+\noindent
+Thus, upto affine congruence there are 3 classes of non-degenerate, non-singular
+conics in finite fields of
+characteristic two:
+\begin{enumerate}[label=\Roman*.]
+    \item $y^2 + x = 0$
+    \item $xy + 1 = 0$
+    \item $x^2 + xy + y^2 + L = 0\quad\forall\,L\in\F^\times$
+\end{enumerate}
+From here on, we'll refer to these as Type I, Type II and Type III conics
+respectively.
+\vspace{1ex}
+
+\noindent
+Note that Type I and Type II have equations similar to parabola and hyperbola.
+Further, since $x^2 + 1 = 0$ has a solution in any field of characteristic two,
+Theorem \ref{thm:hyp_ell_corr} gives us that ellipses and hyperbolae will be
+affine congruent. Hence, all the non-degenerate conics we're used to in $\R$ are
+contained in the Type I and Type II cases. Type III, however, is a new class that
+appears only in the case of characteristic two fields.
+
+
+\section{Conic Groups}
+
+For Type I and Type II conics, we can achieve a similar parametrization as done
+for any field with characteristic not two in Chapter \ref{ch:conics}. This gives
+us the groups corresponding to Type I and Type II conics to be isomorphic to
+$\langle\F,+\rangle$ and $\langle\F^\times,\cdot\rangle$.
+\vspace{1ex}
+
+\noindent
+For Type III conics, we have to consider a quadratic field extension $\F(\alpha)$
+as a two dimensional vector space over $\F$ with an ordered basis $\{1,\alpha\}$.
+Note that such an $\alpha$ is guaranteed to exist as the finite field of order
+$|\F|^2$ has a subfield isomorphic to $\F$ since $|\F|\mid|\F|^2$
+\cite[\S14.3]{dummit}.
+Suppose $\alpha$ is the root of the equation $x^2 + bx + c$ and hence
+$\alpha^2 = b\alpha+c$.
+
+Note that for some fixed $a=a_1+a_2\alpha\in\F(\alpha)$, multiplying any
+$x=x_1+x_2\alpha\in\F(\alpha)$ by $a$ is an $\F$-linear map since
+\begin{align*}
+    ax &= (a_1+a_2\alpha)(x_1+x_2\alpha) \\
+       &= a_1 x_1 + (a_1 x_2 + a_2 x_1)\alpha + a_2 x_2 \alpha^2 \\
+       &= (a_1 + a_2\alpha)x_1 + (a_2 c + a_1\alpha + a_2 b\alpha)x_2 \\
+       &= \begin{bmatrix}a_1 & a_2 c \\ a_2 & a_1 + a_2 b\end{bmatrix}
+          \begin{bmatrix}x_1 \\ x_2\end{bmatrix}
+   \end{align*}
+We'll consider a map $N\colon\F(\alpha)\to\F$ which sends $z=x+y\alpha\in\F(\alpha)$ to
+the determinant of the above matrix for multiplying by $a$ i.e.
+
+\[
+    N(z) = N(x + y\alpha)
+    = \left|\begin{matrix}x & cy \\ y & x + by\end{matrix}\right|
+    = x(x + by) + c y^2
+    = x^2 + cy^2 + bxy
+\]
+
+This map is known as the field norm on $\F(\alpha)$. It is easy to see that the
+equation $N(z)=k$ for some $k\in\F^\times$ corresponds to a conic in $\F^2$ that
+is Type III (since $A=1$, $B=b$ and $C=c^2$). Further, $N$ can be thought of as a
+group homomorphism from $\F(\alpha)^\times$ to $\F^\times$ since $N(1)=1$ and
+\begin{align*}
+    N((x+y\alpha)(z+w\alpha)) &= N(xz+yw\alpha^2+(xw+yz)\alpha) \\
+                              &= N(xz+cyw+(xw+yz+byw)\alpha) \\
+                              &= x^2 (z^2 + cw^2 + bzw) + cy^2 (z^2 + cw^2 + bzw) \\
+                              &\quad+ bxy (z^2 + cw^2 + bzw) \\
+                              &= (x^2 + cy^2 + bxy) (z^2 + cw^2 + b zw) \\
+                              &= N(x+y\alpha)N(z+w\alpha)
+\end{align*}
+For any $z\in\F(\alpha)$ that satisfies $N(z)=k$, every element of the coset
+$(\ker N)z$ also satisfies $N(z)=k$. In fact, these are the only solutions as
+cosets are either equal or disjoint. Hence, the order of the conic group of Type
+III is $|\ker N|$.
+
+\vspace{1ex}
+
+This is where the investigation ends. There are two main directions to complete
+this theory -- first is classifying the structure of the group of Type III conics
+-- and second is looking at the case of infinite fields with characteristic two.

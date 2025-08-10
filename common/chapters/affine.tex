@@ -1,0 +1,277 @@
+\chapter{Affine Geometry} \label{ch:affine}
+
+Affine spaces extend the concept of vector spaces and linear transformations with
+the familiar notion of translation. The treatment of affine geometry given here
+is majorly inspired from Berger's textbook \cite{berger}. The more application
+oriented parts such as properties of affine transformations are taken from
+Brannan's textbook on geometry \cite{brannan}.
+
+\section{Affine space}
+
+\begin{definition}
+    Given a vector space $\vec{X}$ over $\mathbb{F}$, its set of points $X$ and
+    an operation $+\colon X\times\vec{X} \to X$ such that $\forall\,\vec{v},\vec{w}\in\vec{X}$
+    and $\forall\,p\in\vec{X}$,
+    \begin{enumerate}
+        \item $p + \vec{0} = p$
+        \item $p + (\vec{v} + \vec{w}) = (p + \vec{v}) + \vec{w}$
+        \item $\theta_{p} \colon \vec{X} \to X$ given by
+            $\theta_{p}(\vec{v}) = p + \vec{v}$ is a bijection.
+    \end{enumerate}
+    Then $X$ is called an affine space with underlying vector space $\vec{X}$.
+\end{definition}
+
+\noindent
+Due to the third point above, we have the following definition:
+
+\begin{definition}
+    Given an affine space $X$, for any $\,a,b \in X$,
+    \[ b - a := \theta_a^{-1}(b) \]
+\end{definition}
+
+\section{Affine frames and coordinates}
+
+\begin{definition}
+    An $(n+1)$-tuple $(p_0,\vec{v}_1,\dots,\vec{v}_n)$ where $p_0 \in X$ and
+    $\{\vec{v}_1,\dots,\vec{v}_n\}$ is a basis of $\vec{X}$ is called an affine
+    frame.
+\end{definition}
+
+\noindent
+Given $p \in X$ and an affine frame $(p_0,\vec{v}_1,\dots,\vec{v}_n)$ of $X$, if
+$p-p_0=c_1\vec{v}_1+\dots+c_n\vec{v}_n$, then $p$ is said to have coordinates
+$(c_1,\dots,c_n)$ in that frame.
+
+\section{Affine transformation}
+
+\begin{definition}
+    Given an affine space $X$, a funtion $f\colon X \to X$ is said to be an affine
+    transformation if $\exists\,\vec{f}\in\End(\vec{X})\colon \vec{f}(b-a)=f(b)-f(a)\ \forall\,a,b \in X$.
+\end{definition}
+
+\begin{notation}
+    We denote the set of affine transformations over $X$ as $\A(X)$ and the set of
+    invertible affine transformations over $X$ as $\GA(X)$.
+\end{notation}
+
+\begin{theorem} \label{thm:aff_lin_rep}
+    Given $f\in\A(X)$, $\vec{f}$ is unique. Further, given some $p_0 \in X$,
+    $\exists!\,b\in{A}$ such that $f(p)=b+\vec{f}(p-p_0)\ \forall\,p \in X$.
+\end{theorem}
+
+\begin{proof}
+    Suppose $\vec{f}_1,\vec{f}_2\in\End(\vec{X})$ such that for any $a,b \in X$
+    \begin{align*}
+        \vec{f}_1(b-a)=f(b)-f(a) \\
+        \vec{f}_2(b-a)=f(b)-f(a)
+    \end{align*}
+    Assume $\exists\,\vec{v}\in\vec{X}\colon \vec{f}_1(\vec{v})\neq\vec{f}_2(\vec{v})$.
+    For some $a \in X$, we have $\theta_a(\vec{v}) \in X$ such that
+    $\theta_a(\vec{v})-a=\theta_a^{-1}(\theta_a(\vec{v}))=\vec{v}$. This means
+    \[
+        \vec{f}_1(\vec{v}) = \vec{f}_1(\theta_a(\vec{v})-a)
+        = f(\theta_a(\vec{v}))-f(a)
+        = \vec{f}_2(\theta_a(\vec{v})-a)= \vec{f}_2(\vec{v})
+    \]
+    This is a contradiction. Hence, our assumption that such a $\vec{v}$ exists
+    must be wrong and so, $\vec{f}_1=\vec{f}_2$.
+    \vspace{1ex}
+
+    \noindent
+    Fixing some $p_0 \in X$, we have
+    $\vec{f}(p-p_0)=f(p)-f(p_0)\ \forall\,p \in X$. So,
+    \[ f(p)=f(p_0)+\vec{f}(p-p_0)\ \forall\,p \in X \]
+    Hence, $b=f(p_0)$. For some $b_1,b_2 \in X$ and $b_1 \neq b_2$, assume
+    \[ f(p)=b_1+\vec{f}(p-p_0)\ \forall\,p \in X \]
+    \[ f(p)=b_2+\vec{f}(p-p_0)\ \forall\,p \in X \]
+    Note that
+    \[ b_1=b_1+(\vec{f}(p-p_0)-\vec{f}(p-p_0))=(b_1+\vec{f}(p-p_0))-\vec{f}(p-p_0)=f(p)-\vec{f}(p-p_0) \]
+    \[ b_2=b_2+(\vec{f}(p-p_0)-\vec{f}(p-p_0))=(b_2+\vec{f}(p-p_0))-\vec{f}(p-p_0)=f(p)-\vec{f}(p-p_0) \]
+    Hence, $b_1=b_2$.
+\end{proof}
+
+\section{Properties of Affine Transformations}
+
+\begin{definition}
+    Given $a,b \in X$, we define the line passing through $a$ and $b$ as
+    \[ \ell_{ab}:=\{a+t(b-a)\colon t\in\mathbb{F}\} \]
+\end{definition}
+
+\begin{definition}
+    Two lines $\ell_{ab}$ and $\ell_{pq}$ are said to be parallel if
+    $b-a=k(p-q)$ for some $k\in\mathbb{F}$. We write this
+    as $\ell_{ab}\parallel\ell_{pq}$.
+\end{definition}
+
+\begin{theorem}
+    Consider $f\in\GA(X)$ and $\ell_{ab}$ for some $a,b \in X$. Then,
+    \[ \exists\,p,q \in X\colon f(\ell_{ab})=\ell_{pq} \]
+\end{theorem}
+
+\begin{proof}
+    Fixing $p_0=a$ in Theorem \ref{thm:aff_lin_rep}, we have $p \in X$ such that
+    \[ f(a+t(b-a))=p+\vec{f}(t(b-a))=p+t\vec{f}(b-a)\ \forall\,t\in\mathbb{F} \]
+    Since $\vec{v} \mapsto p+\vec{v}$ is a bijection, we have $q \in X$ such that
+    $q-p=\vec{f}(b-a)$. Thus
+    \[ f(a+t(b-a))=p+t(q-p)\ \forall\,t\in\mathbb{F} \]
+    i.e. $f(\ell_{ab})=\ell_{pq}$.
+\end{proof}
+
+The above theorem can be interpreted as the following statement:
+\vspace{1ex}
+
+\begin{center}
+    \fbox{\emph{Affine transformations take straight lines to straight lines.}}
+\end{center}
+\vspace{1ex}
+
+\begin{theorem}
+    For any $f\in\GA(X)$,
+    \[ \ell_{ab} \parallel \ell_{pq} \implies f(\ell_{ab}) \parallel f(\ell_{pq}) \]
+\end{theorem}
+
+\begin{proof}
+    Since $\ell_{ab}\parallel\ell_{pq}$, we have $b-a=k(q-p)$ for some
+    $k\in\mathbb{F}$. Using Theorem \ref{thm:aff_lin_rep}, we can write
+    \begin{align*}
+        f(\ell_{ab}) &= \{f(a + t(b-a))\colon t\in\mathbb{F}\} \\
+                     &= \{c + \vec{f}(a + t(b-a) - p_0)\colon t\in\mathbb{F}\} \\
+                     &= \{c + \vec{f}((a-p_0)+t(b-a))\colon t\in\mathbb{F}\} \\
+                     &= \{c + \vec{f}(a-p_0) + t\vec{f}(b-a)\colon t\in\mathbb{F}\}
+    \end{align*}
+    Similarily,
+    $f(\ell_{pq}) = \{c + \vec{f}(p - p_0) +t\vec{f}(q-p)\colon t\in\mathbb{F}\}$.
+    Now,
+    \begin{align*}
+        b - a = k(q - p) \implies \vec{f}(b-a) = k\vec{f}(q - p)
+    \end{align*}
+    By definition, this means that $f(\ell_{ab}) \parallel f(\ell_{pq})$.
+
+\end{proof}
+
+The above theorem can be interpreted as the following statement:
+\vspace{1ex}
+
+\begin{center}
+    \fbox{\emph{Affine transformations take parallel lines to parallel lines.}}
+\end{center}
+\vspace{1ex}
+
+\noindent
+If the underlying vector space $\vec{X}$ of an affine space $X$ has a norm 
+$\norm{\cdot}$ defined on it, we have the following theorem:
+
+\begin{theorem}
+    Given $f\in\GA(X)$, a line $\ell_{ac}$ and any $b\in\ell_{ac}$ such that
+    $b \neq a$ and $b \neq c$, we have
+    \[ \frac{\norm{b-a}}{\norm{c-b}}=\frac{\norm{f(b)-f(a)}}{\norm{f(c)-f(b)}} \]
+\end{theorem}
+
+\begin{proof}
+    Since $b\in\ell_{ac}$, let $b=a+t_0(c-a)$. Now,
+    \begin{align*}
+        \frac{\norm{b-a}}{\norm{c-b}} = \frac{|t_0| \norm{c-a}}{|1-t_0|\norm{c-a}}
+                                      = \left|\frac{t_0}{1-t_0}\right|
+    \end{align*}
+    Using Theorem \ref{thm:aff_lin_rep} with $p_0=a$, we have
+    $f(x)=p+\vec{f}(x-a)$ for some $p \in X$. So,
+    \begin{align*}
+        f(a) &= p+\vec{f}(a-a) = p \\
+        f(b) &= p+\vec{f}(a+t_0 (c-a)-a) = p + t_0 \vec{f}(c-a) \\
+        f(c) &= p+\vec{f}(c-a) \\
+    \end{align*}
+    Hence,
+    \begin{align*}
+        \frac{\norm{f(b)-f(a)}}{\norm{f(c)-f(b)}}
+        = \frac{|t_0| \norm{\vec{f}(c-a)}}{|1-t_0|\norm{\vec{f}(c-a)}}
+        = \left|\frac{t_0}{1-t_0}\right|
+    \end{align*}
+\end{proof}
+
+The above theorem can be interpreted as the following statement:
+\vspace{1ex}
+
+\begin{center}
+    \fbox{\emph{Affine transformations preserve the ratio of distances of 3
+    collinear points.}}
+\end{center}
+\vspace{1ex}
+
+\section{Fundamental theorem of Affine Geometry}
+
+\begin{theorem}
+    If $A_0,A_1,\dots,A_n,B_0,B_1,\dots,B_n \in X$ such that
+    $\{A_1-A_0,\dots,A_n-A_0\}$ and $\{B_1-B_0,\dots,B_n-B_0\}$ are linearly
+    independent where $n = \dim \vec{X}$, then
+    \[ \exists!\,f\in\GA(X)\colon f(A_i) = B_i\ \forall\,i\in\{0,1,\dots,n\} \]
+\end{theorem}
+
+\begin{proof}
+    Let $\vec{v}_i=A_i-A_0$ and $\vec{w}_i=B_i-A_0\ \forall\,i\in\{1,2,\dots,n\}$.
+    Clearly, both $\beta_1=\{\vec{v}_1,\dots,\vec{v}_n\}$ and
+    $\beta_2=\{\vec{w}_1,\dots,\vec{w}_n\}$ form a basis for $\vec{X}$. In fact,
+    there are unique linear transformations $\vec{f}_1,\vec{f}_2\in\GL(\vec{X})$
+    such that $\vec{f}_1(\vec{v}_i)=\vec{e}_i$ and
+    $\vec{f}_2(\vec{w}_i)=\vec{e}_i\ \forall\,i\in\{1,2,\dots,n\}$ where
+    $\{\vec{e}_1,\dots,\vec{e}_n\}$ is the standard basis of $\vec{X}$.
+    \vspace{1ex}
+
+    \noindent
+    Consider the affine transformations $f_1,f_2\in\GA(X)$ given by
+    \begin{align*}
+        f_1(p) = O + \vec{f}_1(p-A_0)\ \forall\,p \in X \\
+        f_2(p) = O + \vec{f}_1(p-B_0)\ \forall\,p \in X 
+    \end{align*}
+    Now, $f_1(A_0)=f_2(B_0)=O$ and
+    $f_1(A_i)=f_2(B_i)=O+\vec{e}_i\ \forall\,i\in\{1,2,\dots,n\}$. Since $f_1$ and
+    $f_2$ are invertible, it is easy to see that $f=f_2^{-1}f_1$ satisfies
+    $f(A_i)=B_i\ \forall\,i\in\{0,1,\dots,n\}$.
+    \vspace{1ex}
+
+    \noindent
+    Next, we need to prove that $f$ is unique. Suppose there are two affine
+    transformations $g_1,g_2\in\GA(X)$ that satisfy
+    $g_1(A_i)=g_2(A_i)=B_i\ \forall\,i\in\{0,1,\dots,n\}$ but $\exists\,q_0 \in X$
+    such that $g_1(q_0) \neq g_2(q_0)$.
+    \vspace{1ex}
+
+    \noindent
+    From Theorem \ref{thm:aff_lin_rep}, picking $p_0=A_0$,
+    $\exists!\,b_1,b_2 \in X$ such that $\forall\,q \in X$
+    \begin{align*}
+        g_1(p) = b_1 + \vec{g}_1(p-A_0) \\
+        g_2(p) = b_2 + \vec{g}_2(p-A_0)
+    \end{align*}
+    Since $g_1(A_0)=g_2(A_0)=B_0$, we have $b_1=b_2$. Further using
+    \[ g_1(A_i)=g_2(A_i)=B_i\ \forall\,i\in\{1,2,\dots,n\} \]
+    we get the relations
+    \[ \vec{g}_1(\vec{v}_i)=\vec{g}_2(\vec{v}_i)\ \forall\,i\in\{1,2,\dots,n\} \]
+    But note that $\beta_1$ is a basis of $\vec{X}$. Thus for any
+    $\vec{a}\in\vec{X}$, we have scalars $c_1,\dots,c_n$ such that
+    $\vec{a}=c_1\vec{v}_1+\dots+c_n\vec{v}_n$. Hence,
+    \begin{align*}
+        \vec{g}_1(\vec{a}) = c_1\vec{g}_1(\vec{v}_1)+\dots+c_n\vec{g}_1(\vec{v}_2)
+        = c_1\vec{g}_2(\vec{v}_1)+\dots+c_n\vec{g}_2(\vec{v}_2)
+        = \vec{g}_2(\vec{a})\ \forall\,\vec{a}\in\vec{X}
+    \end{align*}
+    So, $b_1=b_2$ and $\vec{g}_1=\vec{g}_2$. But this contradicts that
+    $\exists\,q_0 \in X\colon g_1(q_0) \neq g_2(q_0)$. Hence, $g_1=g_2$.
+\end{proof}
+
+Intuitively, this theorem says that there exists an affine transformation in
+$\GA(X)$ which takes an $n$-simplex in an affine space $X$ with $\dim \vec{X}=n$
+to another $n$-simplex in $X$. Note that an $n$-simplex is a generalization of the
+concept of triangles and tetrahedra in 2D and 3D respectively. In particular, a
+triangle is a 2-simplex and a tetrahedron is a 3-simplex. So, if we consider the
+affine space $\mathbb{R}^2$, this theorem says that there is an affine
+transformation that takes any triangle to any other triangle. We can also state it
+as
+\vspace{1ex}
+
+\begin{center}
+    \fbox{\emph{All triangles in $\mathbb{R}^2$ are affine-congruent.}}
+\end{center}
+\vspace{1ex}
+
+In general, we say two figures are affine-congruent if there is an invertible
+affine transformation taking one to the other.
