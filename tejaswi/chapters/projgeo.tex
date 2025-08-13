@@ -325,16 +325,21 @@ justify the next definition.
 \begin{figure}[H]
   \center
   \begin{tikzpicture}
-    \tkzDefPoint(0,0){Q}
-    \tkzDefPoint(-2,1.490712){A}
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint({-3*cos(45)},{2*sin(45)}){A}
     \tkzDefPoint(0,2){B}
     \tkzDefPoint(2,1.490712){C}
     \tkzDefPoint(-2,-1.490712){A'}
     \tkzDefPoint(0,-2){B'}
     \tkzDefPoint(2,-1.490712){C'}
+    \tkzInterLL(A,B')(A',B)
+    \tkzGetPoint{R}
+    \tkzInterLL(A,C')(A',C)
+    \tkzGetPoint{Q}
+    \tkzInterLL(C,B')(C',B)
+    \tkzGetPoint{P}
     \tkzDefPoint(1.13,0){P}
-    \tkzDefPoint(-1.13,0){R}
-    \tkzDrawEllipse[line width=1, black](Q,3,2,0)
+    \tkzDrawEllipse[line width=1, black](O,3,2,0)
     \tkzDrawPoints[fill=black](A,B,C,A',B',C',P,Q,R)
     \tkzDrawLine[black, add=0 and 0](A,B')
     \tkzDrawLine[black, add=0 and 0](A,C')
@@ -485,29 +490,27 @@ Proof adapted from \cite{brannan}.
 \begin{figure}[H]
   \center
   \begin{tikzpicture}
+    \begin{scope}[xscale=0.9, yscale=0.8]
     \tkzDefPoint(0,0){C}
-    \tkzDefPoint(0,{sqrt(3)}){P}
-    \tkzDefPoint(-2,1){Q}
-    \tkzDefPoint(2.1339745962,2.5131397208){R}
-    \tkzDefPoint(2.1339745962,-2.5131397208){R'}
-    \tkzDefPoint(0,2.5){y}
-    \tkzDefPoint(0,-2.5){y'}
-    \tkzDefPoint(3,0){x}
-    \tkzDefPoint(-2.25,0){x'}
-    \tkzDefPoint(-2.1037979125,0){E}
-    \tkzDrawPoints[fill=black](E,P,Q,R,R')
-    \tkzDrawLine[<->, line width=0.5, gray](y,y')
-    \tkzDrawLine[<->, line width=0.5, gray](x,x')
-    \tkzDrawLine[<->, line width=1, add=1.5 and 0.5,black](P,Q)
-    \draw[domain=-2.1037979125:2.25, smooth, line width=1, black]
-      plot (\x,{sqrt((\x)^3-3*\x+3))});
-    \draw[domain=-2.1037979125:2.25, smooth, line width=1, black]
-      plot (\x,{-sqrt((\x)^3-3*\x+3))});
-    \tkzLabelPoints[above right, black](P)
-    \tkzLabelPoints[above left, black](Q)
-    \tkzLabelPoints[below right, black](R)
-    \tkzLabelPoints[above right, black](R')
+    \tkzDefPoint(-2.08,1){P}
+    \tkzDefPoint(0.55,{sqrt(3)}){Q}
+    \tkzDefPoint(4.82,5.5){O}
+    \tkzDefPoint({(-2.08)+(-2.2)*(-2.08-0.55)},{(1)+(-2.2)*(1-sqrt(3))}){s}
+    \tkzDefPoint({(4.82)+((-2.3)*(4.82-((-2.08)+(-2.2)*(-2.08-0.55))))},
+                 {(5.5)+((-2.3)*(5.5-((1)+(-2.2)*(1-sqrt(3)))))}){s'}
+    \tkzDrawPoints[fill=black](P,Q,O,s,s')
+    \tkzDrawLine[<->, line width=0.5, add=0.5 and 1.5, black](P,Q)
+    \tkzDrawLine[<->, line width=0.5, add=0.5 and 1.75, black](O,s)
+    \draw[line width =1] (5,6) .. controls (3,0.5) .. (0,2)
+                               .. controls (-3,3) and (-3,-3)  .. (0,-2)
+                               .. controls (3,-0.5) .. (5,-6);
+    \tkzLabelPoints[above left, black](P)
+    \tkzLabelPoints[above, black](Q)
+    \tkzLabelPoint[below right, black](s){$P\ast Q$}
+    \tkzLabelPoint[above left, black](s'){$P+Q$}
+    \tkzLabelPoints[above left, black](O)
+    \end{scope}
   \end{tikzpicture}
-  \caption{ Elliptic curve in $E$ in Weirestrass form}
+  \caption{Addition Law}
 \end{figure}
 
