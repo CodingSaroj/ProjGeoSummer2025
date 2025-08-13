@@ -165,8 +165,51 @@ justify the next definition.
 
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.75\linewidth]{pictures/desargues.png}
-  \caption{Figure from \cite{brannan}.}
+  \begin{tikzpicture}
+    \begin{scope}[xscale=1,yscale=0.3]
+    \tkzDefPoint(-5,0){U}
+    \tkzDefPoint(-1,4){A}
+    \tkzDefPoint(6,11){A'}
+    \tkzDefPoint(1,0){B}
+    \tkzDefPoint(3,0){B'}
+    \tkzDefPoint(0,-2){C}
+    \tkzDefPoint(5,-4){C'}
+    \tkzInterLL(B,C)(B',C')
+       \tkzGetPoint{P}
+    \tkzInterLL(A,B)(A',B')
+       \tkzGetPoint{R}
+    \tkzInterLL(A,C)(A',C')
+       \tkzGetPoint{Q}
+    \tkzDrawLine[line width=1, add=0 and 0, black](A,B)
+    \tkzDrawLine[line width=0.5, add=0 and 0, black](B,R)
+    \tkzDrawLine[line width=1, add=0 and 0, black](A',B')
+    \tkzDrawLine[line width=0.5, add=0 and 0, black](B',R)
+    \tkzDrawLine[line width=1, add=0 and 0, black](C,B)
+    \tkzDrawLine[line width=0.5, add=0 and 0, black](B,P)
+    \tkzDrawLine[line width=1, add=0 and 0, black](C',B')
+    \tkzDrawLine[line width=0.5, add=0 and 0, black](B',P)
+    \tkzDrawLine[line width=1, add=0 and 0, black](A,C)
+    \tkzDrawLine[line width=0.5, add=0 and 0, black](C,Q)
+    \tkzDrawLine[line width=1, add=0 and 0, black](A',C')
+    \tkzDrawLine[line width=0.5, add=0 and 0, black](C',Q)
+    \tkzDrawLine[line width=0.5, add=0 and 0.1, black](U,A')
+    \tkzDrawLine[line width=0.5, add=0 and 0.5, black](U,B')
+    \tkzDrawLine[line width=0.5, add=0 and 0.2, black](U,C')
+    \tkzDrawLine[dashed, line width=0.5, add=0 and 0, black](P,Q)
+    \tkzDrawPoints[fill=black](U,A,B,C,A',B',C',P,Q,R)
+    \tkzLabelPoints[left, black](U)
+    \tkzLabelPoints[above left, black](A)
+    \tkzLabelPoints[above, black](A')
+    \tkzLabelPoints[above, black](B)
+    \tkzLabelPoints[above, black](B')
+    \tkzLabelPoints[below left, black](C)
+    \tkzLabelPoints[below right, black](C')
+    \tkzLabelPoints[above, black](P)
+    \tkzLabelPoints[below, black](Q)
+    \tkzLabelPoints[below left, black](R)
+  \end{scope}
+  \end{tikzpicture}
+  \caption{}
 \end{figure}
 
 \begin{proof}
