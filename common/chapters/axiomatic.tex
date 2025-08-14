@@ -43,11 +43,11 @@ An equivalence class of parallel lines is called a pencil of parallel lines.
     Suppose there exist three distinct pencils $\pi_1, \pi_2$ and $\pi_3$ of parallel lines. Then any pencil $\pi$ contains as many lines as the number of points on any line.
 \end{theorem}
 \begin{proof}
-    Let $l \in \pi_1$, $m \in \pi_2.$ For every $Q_i \in \pt$ such that $Q_i \ic l$, by axiom 2, there exists exactly one $m_i \in \li$ such that $m \nparallel m_i.$ If $m_i = m_j$, by axiom 1, $P_i=P_j$ and therefore $i=j$.
+    Let $l \in \pi_1$, $m \in \pi_2$. For every $Q_i \in \pt$ such that $Q_i \ic l$, by axiom 2, there exists exactly one $m_i \in \li$ such that $m \parallel m_i.$ If $m_i = m_j$, by axiom 1, $P_i=P_j$ and therefore $i=j$.
     \vspace{1ex}
 
     \noindent
-    For every $l_i \in \pi_2$, as $l \parallel l_i,$ there exists exactly one $P_i \in \pt$ such that $P_i \ic l$ and $P_i \ic l_i$. If $P_i = P_j$ and since $l_i \parallel l_j,$ by definition, $l_i=l_j$ and therefore $i=j.$ 
+    For every $l_i \in \pi_2$, as $l \nparallel l_i$, there exists exactly one $P_i \in \pt$ such that $P_i \ic l$ and $P_i \ic l_i$. If $P_i = P_j$, then by axiom 2, we have a unique $l_k \in \li$ such that $P_i \ic l_k$ and $l_k \parallel m$. Hence, $l_i=l_j$ and therefore $i=j$.
 
     We found a one-to-one correspondence between the points on $l$ and the lines in $\pi_2.$ Hence, for given two distinct pencils, the number of lines in one pencil is equal to the number of points on a line in another pencil. Now, we use the fact that we have 3 distinct pencils of parallel lines. The number of points on a line in $\pi_3$ is equal to the number of lines in $\pi_1$ and the number of points on a line in $\pi_3$ is equal to the number of lines in $\pi_2,$ hence the number of lines in $\pi_1$ and $\pi_2$ is equal and therefore, the number of points on any line in $\pi_1$, $\pi_2$ and $\pi_3$ is same.
 \end{proof}
@@ -68,7 +68,7 @@ The smallest structure possible with this geometry is $\Z_2^2.$
 \noindent
 We can give two examples,
 \begin{enumerate}[label=\roman*.]
-    \item $\sigma P=P_0\ \forall\, P \in \pt$ and a fixed $P_0 \in \pt$.
+    \item $\sigma P=P_0\ \forall\, P \in \pt$ given a fixed $P_0 \in \pt$.
     \item $\sigma P=P\ \forall\, P \in \pt$.
 \end{enumerate}
 
@@ -94,7 +94,7 @@ We can give two examples,
 
     \vspace{1ex}
 
-    If $R \in \pt_{P+Q}$, then $P \ic l_1$ and $Q \ic l_2$, hence $P+Q = l_1$ or $P+Q = l_2$. By definition, $P'+Q' \parallel P' + R'$ or $P'+Q' \parallel Q' + R'$, which contradicts. Hence, with the help of given images of $P$ and $Q$ and using the point, we found $R$. We conclude that $R'$ is the image of $R$. For $R' \in \pt_{P'+Q'}$, $P \neq R$. According to axiom 3, $\exists\, S' \notin \pt_{P'+Q'}$. If $R' \in \pt_{P'+S'}$,  then $P'+Q'=P'+S'$ since $P',R' \in \pt_{P'+Q'}$ and $P',R' \in \pt_{P'+S'}$. Therefore, suppose $R' \notin \pt_{P'+S''}$ and we uniquely determine $S$ whose image is $S'$ and prove that we can uniquely find $R$ whose image is $R'$ using the images $P'$ and $Q'$.
+    If $R \in \pt_{P+Q}$, then $P \ic l_1$ and $Q \ic l_2$, hence $P+Q = l_1$ or $P+Q = l_2$. By definition, $P'+Q' \parallel P' + R'$ or $P'+Q' \parallel Q' + R'$, which contradicts. Hence, with the help of given images of $P$ and $Q$ and using the point, we found $R$. We conclude that $R'$ is the image of $R$. For $R' \in \pt_{P'+Q'}$, $P \neq R$. According to axiom 3, $\exists\, S' \notin \pt_{P'+Q'}$. If $R' \in \pt_{P'+S'}$,  then $P'+Q'=P'+S'$ since $P',R' \in \pt_{P'+Q'}$ and $P',R' \in \pt_{P'+S'}$. Therefore, suppose $R' \notin \pt_{P'+S''}$ and we uniquely determine $S$ whose image is $S'$ and prove that we can uniquely find $R$ whose image is $R'$ using the images $P'$ and $S'$.
 \end{proof}
 
 \begin{definition}
@@ -130,7 +130,7 @@ This leaves us with three possibilities for the traces of non-singular dilatatio
 \end{theorem}
 
 \begin{proof}
-    Let $l \in \zeta_\tau$ such that $P \ic l.$ For some $Q \notin \pt_l$, let $l' \parallel l$ and $Q \ic l'$, then $l' \in \zeta_\tau$ and $\tau Q \ic l$ since $\zeta_\tau$ is a penci since $\zeta_\tau$ is a pencill.  Let $m,m' \in \li$ such that $m=P+Q$, $P' \ic m'$ and $m' \parallel m$. Then by definition, $ \tau Q \ic m'$. Since $l \not \parallel m$, we have $l' \not \parallel m'$. Since $\tau Q \ic m'$ and $\tau Q \ic l'$, therefore $\tau Q$ is uniquely determined.
+    Let $l \in \zeta_\tau$ such that $P \ic l.$ For some $Q \notin \pt_l$, let $l' \parallel l$ and $Q \ic l'$, then $l' \in \zeta_\tau$ and $\tau Q \ic l$ since $\zeta_\tau$ is a pencil.  Let $m,m' \in \li$ such that $m=P+Q$, $P' \ic m'$ and $m' \parallel m$. Then by definition, $ \tau Q \ic m'$. Since $l \not \parallel m$, we have $l' \not \parallel m'$. Since $\tau Q \ic m'$ and $\tau Q \ic l'$, therefore $\tau Q$ is uniquely determined.
 
     \vspace{1ex}
 
@@ -144,11 +144,11 @@ This leaves us with three possibilities for the traces of non-singular dilatatio
     Let $\sigma_1, \sigma_2$ be two dilatations. Then, their composition is also
     a dilatation since
     \[ P+Q \parallel \sigma_2 P + \sigma_2 Q \parallel \sigma_1 \sigma_2 P+ \sigma_1 \sigma_2 Q \]
-    The identity map is a dilatation and since dilatations are one-one and onto, $\sigma^{-1}$ exists and is a dilatation because
+    The identity map is a dilatation and since non-degenerate dilatations are one-one and onto, $\sigma^{-1}$ exists and is a dilatation because
     \[ \sigma^{-1}P+\sigma^{-1}Q \parallel \sigma\sigma^{-1}P+\sigma\sigma^{-1}Q = P+Q \]
     Associativity directly follows from function composition. Hence, dilatations form a group under function composition.
 
-    Let $\tau$ be a translation. Suppose $\tau^{-1}$ fixes a point $P$ i.e. $\tau^{-1}P=P \implies P=\tau P$. Therefore, $\tau = 1$ and $\tau_{-1}=1$ i.e. $\tau^{-1}$ fixes no point iff $\tau^{-1} \neq 1$. This proves that $\tau^{-1}$ is a translation.
+    Let $\tau$ be a translation. Suppose $\tau^{-1}$ fixes a point $P$ i.e. $\tau^{-1}P=P \implies P=\tau P$. Therefore, $\tau = 1$ and $\tau^{-1}=1$ i.e. $\tau^{-1}$ fixes no point iff $\tau \neq 1$. This proves that $\tau^{-1}$ is a translation.
 
     \vspace{1ex}
 
@@ -162,8 +162,8 @@ This leaves us with three possibilities for the traces of non-singular dilatatio
 
     \noindent
     Let $\sigma$ be a dilatation and $\tau$ be a translation. Suppose $\sigma \tau \sigma^{-1}$ fixes a point $P$. Then,
-    \[ \sigma \tau \sigma^{-1}P=P \: \Rightarrow \tau \sigma^{-1}P=\sigma^{-1}P \]
-    i.e. $\tau$ fixes a point $\sigma^{-1}P$ and hence $\tau_1$. Thus, $\sigma \tau \sigma^{-1}$ fixes no points iff $\sigma \tau \sigma^{-1} \neq 1$ i.e. $\tau = 1$. So, $\sigma \tau \sigma^{-1}$ is a translation and hence the subgroup of translations is normal.
+    \[ \sigma \tau \sigma^{-1}P=P \implies \tau \sigma^{-1}P=\sigma^{-1}P \]
+    i.e. $\tau$ fixes a point $\sigma^{-1}P$ and hence $\tau = 1$. Thus, $\sigma \tau \sigma^{-1}$ fixes no points iff $\sigma \tau \sigma^{-1} \neq 1$ i.e. $\tau = 1$. So, $\sigma \tau \sigma^{-1}$ is a translation and hence the subgroup of translations is normal.
 
     \vspace{1ex}
 
@@ -248,11 +248,11 @@ We define $0 \in k$ as the map that sends all translations to the identity dilat
 
     Since $\sigma(P) = \tau_{PP}^\alpha(P)=P$, $\sigma$ fixes P. If $\sigma$ is degenerate, then every point is mapped to P i.e. $\sigma(Q) = \tau_{PQ}^{\alpha}(P) = P \implies \tau_{PQ}^{\alpha} = 1\ \forall\, Q \in \pt$. Therefore, $\tau^\alpha = 1$, for all $\tau \in T$ and hence $\alpha=0$. Thus $\sigma$ can't be degenerate and
     \[
-    \sigma(Q)=\tau_{PQ}^{\alpha}(P)= \tau_{PQ}^{\alpha}(\sigma(P)) \: \Rightarrow Q = \sigma^{-1}\tau_{PQ}^{\alpha}\sigma(P)
+    \sigma(Q)=\tau_{PQ}^{\alpha}(P)= \tau_{PQ}^{\alpha}(\sigma(P)) \implies Q = \sigma^{-1}\tau_{PQ}^{\alpha}\sigma(P)
     \]
     So, $\sigma^{-1}\tau_{PQ}^{\alpha}\sigma$ is a translation which maps $P$ to $Q$ and it is uniquely determined as $\tau_{PQ}$ since translations are uniquely determined by image of one point. Thus
     \[
-    \sigma^{-1}\tau_{PQ}^{\alpha}\sigma = \tau_{PQ} \: \Rightarrow \tau_{PQ}^{\alpha} = \sigma\tau_{PQ}\sigma^{-1}
+    \sigma^{-1}\tau_{PQ}^{\alpha}\sigma = \tau_{PQ} \implies \tau_{PQ}^{\alpha} = \sigma\tau_{PQ}\sigma^{-1}
     \]
     Since the point Q was chosen arbitrarily, $\tau_{PQ}$ can be any translation. Therefore,
     \[
@@ -277,7 +277,7 @@ We define $0 \in k$ as the map that sends all translations to the identity dilat
 
     Assume axiom 4b is true and let $P,Q,R \in \pt$ be distinct and collinear. Consider $\tau_1=\tau_{PQ}$, $\tau_2=\tau_{PR}$ such that $\zeta_{\tau_1} = \zeta_{\tau_2}$. By axiom 4b, there exists a $\alpha \in k$ such that $\tau_2=\tau_1^\alpha$. From the previous theorem, there exists a dilatation $\sigma$ for $\alpha$ such that $\sigma(P)=P$ and $\tau^{\alpha} = \sigma\tau\sigma^{-1}$ for all $\tau \in T.$ Therefore,
     \[
-    \tau_2=\sigma\tau\sigma^{-1} \: \Rightarrow \tau_2\sigma=\sigma\tau_1
+    \tau_2=\sigma\tau\sigma^{-1} \implies \tau_2\sigma=\sigma\tau_1
     \]
     Hence, $\sigma$ is the desired dilatation. So, axiom 4b $P$ holds for all $P \in \pt$.
 \end{proof}
@@ -347,8 +347,8 @@ Assuming only the first three axioms hold.
 \noindent
 Let us discuss some trivial cases, 
 \begin{itemize}
-    \item If $Q'=Q,$ then $Q+R=Q'+R'$ and since $R \ic l_2, \ R' \ic l_2$ and $R \ic Q+R,$  hence $R=R'$ is uniquely determined. Hence, it follows that $S=S'.$
-    \item If $Q, \ R, \ S \in \pt$ are collinear, hence the images $Q', \ R', \ S'$ are also collinear.
+    \item If $Q'=Q,$ then $Q+R=Q'+R'$ and since $R \ic l_2, \ R' \ic l_2$ and $R' \ic Q+R$,  hence $R=R'$ is uniquely determined. Hence, it follows that $S=S'$.
+    \item If $Q,R,S \in \pt$ are collinear, then the images $Q'$, $R'$ and $S'$ are also collinear.
 \end{itemize}
 We will refer to the case when the lines $l_1, \ l_2, \ l_3$ are parallel as $\mathbf{D_a},$ and the case when the lines $l_1, \ l_2, \ l_3$ meet at point $P$ as $\mathbf{DP}.$
 
