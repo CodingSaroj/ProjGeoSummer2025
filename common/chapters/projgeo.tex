@@ -64,9 +64,8 @@ $\vec{F}$ of $\vec{E}$.
 
 \begin{definition}
   Let $\vec{E}$ and $\vec{E}'$ be two vector subspaces, and ${p\colon\vec{E}\setminus\{0\}\to\Prj(\vec{E})}$ and
-  ${p'\colon\vec{E}'\setminus\{0\}\to\Prj(\vec{E}')}$ be the two projections. A \textit{projective transformation}
-  ${g\colon\Prj(\vec{E})\to\Prj(\vec{E}')}$ is a mapping such that there exists a linear isomorphism
-  ${f\colon\vec{E}\to\vec{E}'}$ with $p'\circ f=g\circ p$.
+  ${p'\colon\vec{E}'\setminus\{0\}\to\Prj(\vec{E}')}$ be the two projections. A map ${g\colon\Prj(\vec{E})\to\Prj(\vec{E}')}$ such that there exists a linear isomorphism
+  ${f\colon\vec{E}\to\vec{E}'}$ with $p'\circ f=g\circ p$ is called a \textit{projective transformation}.
 \end{definition}
 
 \begin{prop}
@@ -151,7 +150,7 @@ justify the next definition.
   it is the identity transformation.
 \end{proof}
 
-\begin{theorem}[Desargues's Theorem]
+\begin{theorem}[Desargues' Theorem]
   Let $\triangle ABC$ and $\triangle A'B'C'$ be triangles in $\R^2$ such that the lines $AA'$,
   $BB'$, and $CC'$ meet at point $U$. Let $BC$ and $B'C'$ meet at $P$, $CA$ and $C'A'$ at $Q$,
   and $AB$ and $A'B'$ at $R$. Then $P$, $Q$, and $R$ are collinear.
@@ -159,8 +158,51 @@ justify the next definition.
 
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.75\linewidth]{pictures/desargues.png}
-  \caption{Figure from \cite{brannan}.}
+  \begin{tikzpicture}
+    \begin{scope}[xscale=0.8,yscale=0.15]
+      \tkzDefPoint(-5,0){U}
+      \tkzDefPoint(-1,4){A}
+      \tkzDefPoint(6,11){A'}
+      \tkzDefPoint(1,0){B}
+      \tkzDefPoint(3,0){B'}
+      \tkzDefPoint(0,-2){C}
+      \tkzDefPoint(5,-4){C'}
+      \tkzInterLL(B,C)(B',C')
+         \tkzGetPoint{P}
+      \tkzInterLL(A,B)(A',B')
+         \tkzGetPoint{R}
+      \tkzInterLL(A,C)(A',C')
+         \tkzGetPoint{Q}
+      \tkzDrawLine[line width=1, add=0 and 0, black](A,B)
+      \tkzDrawLine[line width=0.5, add=0 and 0, black](B,R)
+      \tkzDrawLine[line width=1, add=0 and 0, black](A',B')
+      \tkzDrawLine[line width=0.5, add=0 and 0, black](B',R)
+      \tkzDrawLine[line width=1, add=0 and 0, black](C,B)
+      \tkzDrawLine[line width=0.5, add=0 and 0, black](B,P)
+      \tkzDrawLine[line width=1, add=0 and 0, black](C',B')
+      \tkzDrawLine[line width=0.5, add=0 and 0, black](B',P)
+      \tkzDrawLine[line width=1, add=0 and 0, black](A,C)
+      \tkzDrawLine[line width=0.5, add=0 and 0, black](C,Q)
+      \tkzDrawLine[line width=1, add=0 and 0, black](A',C')
+      \tkzDrawLine[line width=0.5, add=0 and 0, black](C',Q)
+      \tkzDrawLine[line width=0.5, add=0 and 0.1, black](U,A')
+      \tkzDrawLine[line width=0.5, add=0 and 0.5, black](U,B')
+      \tkzDrawLine[line width=0.5, add=0 and 0.2, black](U,C')
+      \tkzDrawLine[dashed, line width=0.5, add=0 and 0, black](P,Q)
+      \tkzDrawPoints[fill=black](U,A,B,C,A',B',C',P,Q,R)
+      \tkzLabelPoints[left, black](U)
+      \tkzLabelPoints[above left, black](A)
+      \tkzLabelPoints[above, black](A')
+      \tkzLabelPoints[above, black](B)
+      \tkzLabelPoints[above, black](B')
+      \tkzLabelPoints[below left, black](C)
+      \tkzLabelPoints[below right, black](C')
+      \tkzLabelPoints[above, black](P)
+      \tkzLabelPoints[below, black](Q)
+      \tkzLabelPoints[below left, black](R)
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Desargues' Theorem}
 \end{figure}
 
 \begin{proof}
@@ -318,8 +360,41 @@ justify the next definition.
 
 \begin{figure}[H]
   \center
-  \includegraphics[width=\linewidth]{pictures/pascal.png}
-  \caption{Figure from \cite{brannan}.}
+  \begin{tikzpicture}
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint({-3*cos(45)},{2*sin(45)}){A}
+    \tkzDefPoint(0,2){B}
+    \tkzDefPoint(2,1.490712){C}
+    \tkzDefPoint(-2,-1.490712){A'}
+    \tkzDefPoint(0,-2){B'}
+    \tkzDefPoint(2,-1.490712){C'}
+    \tkzInterLL(A,B')(A',B)
+    \tkzGetPoint{R}
+    \tkzInterLL(A,C')(A',C)
+    \tkzGetPoint{Q}
+    \tkzInterLL(C,B')(C',B)
+    \tkzGetPoint{P}
+    \tkzDefPoint(1.13,0){P}
+    \tkzDrawEllipse[line width=1, black](O,3,2,0)
+    \tkzDrawPoints[fill=black](A,B,C,A',B',C',P,Q,R)
+    \tkzDrawLine[black, add=0 and 0](A,B')
+    \tkzDrawLine[black, add=0 and 0](A,C')
+    \tkzDrawLine[black, add=0 and 0](B,A')
+    \tkzDrawLine[black, add=0 and 0](B,C')
+    \tkzDrawLine[black, add=0 and 0](C,B')
+    \tkzDrawLine[black, add=0 and 0](C,A')
+    \tkzDrawLine[dashed, add=0.5 and 0.5, black](P,R)
+    \tkzLabelPoints[above right, black](P)
+    \tkzLabelPoints[above, black](Q)
+    \tkzLabelPoints[above left, black](R)
+    \tkzLabelPoints[above left, black](A)
+    \tkzLabelPoints[above, black](B)
+    \tkzLabelPoints[above right, black](C)
+    \tkzLabelPoints[below left, black](A')
+    \tkzLabelPoints[below, black](B')
+    \tkzLabelPoints[below right, black](C')
+  \end{tikzpicture}
+  \caption{When the $E$ is an ellipse.}
   \label{fig:pascal}
 \end{figure}
 
@@ -453,10 +528,42 @@ The addition law is defined as follows:
 
 To add P and Q, take the third intersection point $P*Q$, join it to $O$ by a line, and then take the third intersection point to be $P+Q$. In other words, set $P + Q := O*(P*Q)$
 In case of $P=Q$, the line passing through $P$ and $Q$ is taken to be the tangent to $\mathcal{C}$ at $P$.
-
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\linewidth]{pictures/Grouplaw.png}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{scope}[xscale=0.8, yscale=0.8]
+                \tkzDefPoint(-2,0.7){P}
+                \tkzDefPoint(-1.3,1.3){R}
+                \tkzDefPoint(2.5,3){O}
+                \tkzDefPoint(1,1){P*Q}
+                \tkzDefPoint(0.4,0.8){R*Q}
+                \tkzDefPoint(1.5,-1.8){F}
+                \tkzInterLL(P,P*Q)(R,R*Q) \tkzGetPoint{Q}
+                \tkzInterLL(P,F)(O,R*Q) \tkzGetPoint{R+Q}
+                \tkzInterLL(R,F)(O,P*Q) \tkzGetPoint{P+Q}
+                \tkzDrawPoints[black](O,P,Q,P*Q,P+Q)
+                \tkzDrawLine[black, line width=0.5pt, add=0.3 and 1.5,dashed](P,Q)
+                \tkzDrawLine[black, line width=0.5pt, add=0.5 and 1](O,P*Q)
+                \tkzLabelPoint[black, above left](O){$O$}
+                \tkzLabelPoint[black, below left](P){$P$}
+                \tkzLabelPoint[black, above](Q){$Q$}
+                \tkzLabelPoint[black, below right](P*Q){$P*Q$}
+                \tkzLabelPoint[black, right](P+Q){$P+Q$}
+
+                \draw[line width=0.7pt, smooth] (2.9,3.7) -- (O)
+                    .. controls (1.7,1.8) .. (P*Q)
+                    .. controls (0.7,0.8) .. (R*Q)
+                    .. controls (0.23,0.82) .. (Q)
+                    .. controls (-0.4,1.1) and (-0.8,1.3) .. (R)
+                    .. controls (-1.5,1.25) and (-1.8,1.2) .. (P)
+                    .. controls (-2.2,-0.5) and (-1,-0.4) .. (R+Q)
+                    .. controls (-0.35,-0.23) and (-0.25,-0.22) .. (P+Q)
+                    .. controls (0.9,-0.25) and (1.2,-0.9) .. (F)
+                    -- (1.6,-2.2);
+            \end{scope}
+        \end{tikzpicture}
+    \end{center}
+    \caption{Group law for cubics}
 \end{figure}
 
 In short, we consider a point to intersect a line twice if it is tangent to the curve and thrice if the point is an inflection point. 
@@ -497,9 +604,51 @@ Similarily, we consider the curve obtained from $m_1$, $m_2$, $m_3$ as $M$.
 They will  meet at 9 points due to B\`ezout's theorem \cite[Thm.~A.1]{silver} which are:
 \[O,\ P,\ Q,\ R,\ P*Q,\ Q*R,\ P+Q,\ Q+R,\ T\]
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.7\linewidth]{pictures/Associativity.png}
-  \caption{Solid lines represents $L$ while dotted lines represents $M$}
+    \centering
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{scope}[xscale=1.5, yscale=1.5]
+                \tkzDefPoint(-2,0.7){P}
+                \tkzDefPoint(-1.3,1.3){R}
+                \tkzDefPoint(2.5,3){O}
+                \tkzDefPoint(1,1){P*Q}
+                \tkzDefPoint(0.4,0.8){R*Q}
+                \tkzDefPoint(1.5,-1.8){F}
+                \tkzInterLL(P,P*Q)(R,R*Q) \tkzGetPoint{Q}
+                \tkzInterLL(P,F)(O,R*Q) \tkzGetPoint{R+Q}
+                \tkzInterLL(R,F)(O,P*Q) \tkzGetPoint{P+Q}
+                \tkzDrawPoints[black](O,F,P,Q,R,P*Q,R*Q,P+Q,R+Q)
+                \tkzDrawLine[black, line width=0.5pt, add=0.3 and 1.5,dashed](P,Q)
+                \tkzDrawLine[black, line width=0.5pt, add=0.5 and 2](R,Q)
+                \tkzDrawLine[black, line width=0.5pt, add=0.5 and 1,dashed](O,R*Q)
+                \tkzDrawLine[black, line width=0.5pt, add=0.5 and 1](O,P*Q)
+                \tkzDrawLine[black, line width=0.5pt, add=0.2 and 0.1,dashed](R,F)
+                \tkzDrawLine[black, line width=0.5pt, add=0.1 and 0.1](P,F)
+                \tkzLabelPoint[black, above left](O){$O$}
+                \tkzLabelPoint[black, below left](P){$P$}
+                \tkzLabelPoint[black, above](R){$R$}
+                \tkzLabelPoint[black, above](Q){$Q$}
+                \tkzLabelPoint[black, below right](P*Q){$P*Q$}
+                \tkzLabelPoint[black, below](R*Q){$Q*R$}
+                \tkzLabelPoint[black, above right](P+Q){$P+Q$}
+                \tkzLabelPoint[black, below left](R+Q){$Q+R$}
+                \tkzLabelPoint[black, below left](F){$P*(Q+R)=(P+Q)*R$}
+                \tkzLabelPoint[black, above right](F){$T$}
+
+                \draw[line width=0.7pt, smooth] (2.9,3.7) -- (O)
+                    .. controls (1.7,1.8) .. (P*Q)
+                    .. controls (0.7,0.8) .. (R*Q)
+                    .. controls (0.23,0.82) .. (Q)
+                    .. controls (-0.4,1.1) and (-0.8,1.3) .. (R)
+                    .. controls (-1.5,1.25) and (-1.8,1.2) .. (P)
+                    .. controls (-2.2,-0.5) and (-1,-0.4) .. (R+Q)
+                    .. controls (-0.35,-0.23) and (-0.25,-0.22) .. (P+Q)
+                    .. controls (0.9,-0.25) and (1.2,-0.9) .. (F)
+                    -- (1.6,-2.2);
+            \end{scope}
+        \end{tikzpicture}
+    \end{center}
+    \caption{}
 \end{figure}
 But we see that the cubic curve $\mathcal{C}$ passes through all of these points except $T$.
 From the Cayley-Bacharach theorem \cite[Thm.~A.3]{silver}, if two cubic curves $L$ and $M$ intersect at 9 points and another cubic curve $\mathcal{C}$ passes through 8 of those points then it passes through the ninth point as well.
