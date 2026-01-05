@@ -1,0 +1,259 @@
+\chapter{Affine Geometry}
+\label{chapter:affine}
+
+\section{Affine Space}
+
+\begin{definition}
+  A set $\mathcal{E}$ is endowed with the structure of an affine space by a vector space $E$
+  and a mapping $\Theta$ that associates a vector of $E$ with any ordered pair of points in
+  $\mathcal{E}$,
+
+  \begin{eqnarray*}
+    \mathcal{E} \times \mathcal{E} &\longrightarrow & E \\
+    (A,B) &\longmapsto & \overrightarrow{AB}
+  \end{eqnarray*}
+
+  such that:
+
+  \begin{itemize}
+    \item[-]for any point $A$ of $\mathcal{E}$, the partial map $\Theta_A : B \mapsto
+        \overrightarrow{AB}$ is a bijection from $\mathcal{E}$ to $E$;
+    \item[-]for any points $A$, $B$, and $C$ in $\mathcal{E}$, we have $\overrightarrow{AB}=
+        \overrightarrow{AC}+\overrightarrow{CB}$.
+  \end{itemize}
+
+  The vector space $E$ is called the direction of $\mathcal{E}$, or its underlying vector
+  space. The elements of $\mathcal{E}$ are called points, and the dimension of $\mathcal{E}$
+  is defined to be the dimension of the vector space $E$.
+\end{definition}
+
+A subset $\mathcal{F}$ of $\mathcal{E}$ is an affine subspace if it is empty, or if it
+contains a point $A$ such that $\Theta_A(\mathcal{F})$ is a vector subspace of $E$.
+
+\subsection{Affine Transfromations}
+
+\begin{definition}
+  Let $\mathcal{E}$ and $\mathcal{F}$ be two affine spaces directed respectively by the vector
+  spaces $E$ and $F$. A transformation $\varphi :\mathcal{E}\mapsto\mathcal{F}$ is said to be
+  affine if there exists a point $O\in\mathcal{E}$ and a linear transformation $f:E\mapsto F$
+  such that $\forall M\in E$ $f(\overrightarrow{OM})=\overrightarrow{\varphi(O)\varphi(M)}$.
+\end{definition}
+
+When $E=F=\R^2$, it can be proved that the map $f$ is of the form $f(x)=Ax+b$, where
+$b\in\R^2$, and $A$ is a $2\times2$ invertible matrix. The set of all affine transformations
+of $\R^2$ is denoted by $A(2)$. If $A$ is orthagonal, the map $f$ would produce a Euclidean
+transformation, where all distances and angles are preserved. From the definition, all affine
+transformations:
+\begin{enumerate}
+  \item Map straight lines into straight lines;
+  \item Map parellel straight lines into parellel straight lines;
+  \item Preserve ratios of lengths along a given straight line.
+\end{enumerate}
+Translations and Rotations are examples of affine transformations in 2 dimensional affine
+spaces.
+
+\begin{remark}
+  For the affine transformations $t:\R^2\mapsto\R^2$, $t(x)=Ax+b$, the inverse is given by
+  $t^{-1}(x)=A^{-1}x-A^{-1}b$
+\end{remark}
+
+\section{Fundamental Theorem of Affine Geometry}
+
+\begin{lemma}
+  The points $(0,0)$, $(0,1)$, and $(1,0)$ can be mapped into any three non-collinear points
+  $p$, $q$, and $r$ by a unique affine transformation.
+\end{lemma}
+
+\begin{proof}
+  Any affine transformation
+  $t:\R^2\mapsto\R^2$ has the form $t(x)=Ax+b$. Where
+  \[
+    A=
+    \left(\begin{array}{cc}
+      a & b \\
+      c & d \\
+     \end{array}\right)
+     \text{ and }
+     b=
+     \left(\begin{array}{c}
+         e \\
+         f \\
+      \end{array}\right)
+  \]
+  The images of the points $(1,0)$ and $(0,1)$ are $(a+e,c+f)$ and $(b+e, d+f)$ respectively.
+  For any $p$, $q$, and $r$, we can choose $t$ to be such that $(e,f)=p$, $(a,e)=q-p$, and
+  $(b,d)=r-p$. For some $t'$ such that $t'((0,0))=p$, $t'((1,0))=q$, and
+  $t'((0,1))=r$, we would have $t(x)-t'(x)=0$ $\forall x$. Hence, such transformation $t$ is
+  unique.
+\end{proof}
+
+Using the above lemma, we prove the two-dimensional analog of the so called Fundamental
+theorem of Affine Geometry.
+
+\begin{theorem}[Fundamental theorem of Affine Geometry]
+  For any two sets of three non-collinear points, $\{p,q,r\}$ and $\{p',q',r'\}$ in $\R^2$,
+  there exists a unique affine transformation $t$ which maps $p$, $q$, and $r$ to $p'$, $q'$,
+  and $r'$, respectively.
+\end{theorem}
+
+\begin{definition}
+  Two subsets of an affine space are said to be affine congruent if there exists an affine
+  transformation which takes one to the other.
+\end{definition}
+
+\begin{proof}
+  Let $t_1$ be the affine transformation which maps $(0,0)$, $(0,1)$, and $(1,0)$ to the
+  points $p$, $q$, and $r$ respectively, and let $t_2$ be the affine transformation which maps
+  $(0,0)$, $(0,1)$, and $(1,0)$ to the points $p'$, $q'$, and $r'$ respectively. Then, the map
+  $t=t_2\circ t_1^{-1}$ is an affine transformation, and it maps $p$, $q$, and $r$ to $p'$,
+  $q'$, and $r'$ respectively.
+
+  Suppose $t$ and $s$ are both affine transformations which map $p$, $q$, and $r$ to $p'$,
+  $q'$ and $r'$ respectively. Then the composites $t\circ t_1$, and $s\circ t_1$ both map the
+  points $(0,0)$, $(0,1)$, and $(1,0)$ to the points $p'$, $q'$, and $r'$ respectively.
+  Since such map is unique, $t\circ t_1$=$s\circ t_1$. Composing both of them with $t_1^{-1}$
+  to the right, it follows that $t$=$s$.
+\end{proof}
+
+\begin{corollary}
+  All triangles are affine congruent.
+\end{corollary}
+
+\section{Affine Congruence of Conics}
+
+\begin{lemma}
+  Affine transformations map ellipses to ellipses, parabolas to parabolas, and hyperbolas to
+  hyperbolas.
+\end{lemma}
+
+\begin{proof}
+  Consider the non-degenerate conic with the equation
+  \[
+    Ax^2+Bxy+Cy^2+Fx+Gy+H=0,
+  \]
+  and its image under the transformation $t$ given by $t(m)=Jm+k$, for some invertible matrix
+  $J$, and $k\in\R^2$. The inverse transformation given by $t^{-1}(n)=J^{-1}n-J^{-1}k$ can be
+  written in the form
+  \[
+    \left(\begin{array}{c}
+        x \\
+        y \\
+    \end{array}\right)
+    =
+    \left(\begin{array}{cc}
+        p & q \\
+        r & s \\
+    \end{array}\right)
+    \left(\begin{array}{c}
+        x' \\
+        y' \\
+    \end{array}\right)
+    +
+    \left(\begin{array}{c}
+        u \\
+        v \\
+    \end{array}\right)
+  \]
+  where $m=(x,y)$, and $n=(x',y')$. It follows that $x=px'+qy'+u$, and $y=rx'+sy'+v$. If these
+  expressions are substituted into the equaiton of the conic, we get back a second degree
+  equation. So the image of a conic must be a conic. It cannot be degenerate since affine
+  transformations map lines into lines, and if the resultant conic is a line, then the inverse
+  would map it into a degenrate conic. But this cannot happen since our original conic is
+  non-degenerate.
+
+  If we substitute $x$ and $y$ to the equation of the original conic, it turns out that the
+  discriminant obtained is just
+  \[
+    (ps-rq)^2(B^2-4AC)
+  \]
+  Where $B^2-4AC$ is the discriminant of the original conic. \\
+  Since $(ps-rq)^2>0$, the sign of the discriminant does not change. Hence the type of conic
+  is also unchanged.
+\end{proof}
+
+\begin{theorem}
+  All ellipses are congruent to each other.
+\end{theorem}
+
+\begin{proof}
+  Consider a general elliipse centered at the origin, with aligned axes, $E_1:$
+  \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1 \]
+  With a translation to move the center to the origin and a rotation to align the axes, any
+  ellipse can be transformed into this form.
+  If we apply the affine transformation $t_1:(x,y)\mapsto (x',y')$, where
+  \[
+    \left(\begin{array}{c}
+        x' \\
+        y' \\
+    \end{array}\right)
+    =
+    \left(\begin{array}{cc}
+        \frac{1}{a} & 0           \\
+        0           & \frac{1}{b} \\
+    \end{array}\right)
+    \left(\begin{array}{c}
+        x \\
+        y \\
+    \end{array}\right)
+  \]
+  Then the equation becomes $(x')^2+(y')^2=1$. The map $t=t_2\circ t_1^{-1}$ takes the ellipse
+  $E_1$ to $E_2$.
+\end{proof}
+
+\begin{theorem}
+  All hyperbolas are congruent to each other.
+\end{theorem}
+
+\begin{proof}
+  Consider a general hyperbola centerd at the origin with aligned axes, $H_1:$
+  \[\frac{x^2}{a^2}-\frac{y^2}{b^2}=1 \]
+  With a translation to move the center to the origin and a rotation to align the axes, any
+  hyperbola can be transformed into this form.
+  If we apply the affine transformation $t_1:(x,y)\mapsto (x',y')$, where
+  \[
+    \left(\begin{array}{c}
+        x' \\
+        y' \\
+    \end{array}\right)
+    =
+    \left(\begin{array}{cc}
+        \frac{1}{a} & -\frac{1}{a} \\
+        \frac{1}{b} & \frac{1}{b}  \\
+    \end{array}\right)
+    \left(\begin{array}{c}
+        x \\
+        y \\
+    \end{array}\right)
+  \]
+  Then the equation becomes $x'y'=1$. The map $t=t_2\circ t_1^{-1}$ takes the hyperbola
+  $H_1$ to $H_2$.
+\end{proof}
+
+\begin{theorem}
+  All parabolas are congruent to each other.
+\end{theorem}
+
+\begin{proof}
+  Consider a general parabola centered at the origin with aligned axes, $P_1:y^2=ax$. With a
+  translation to move the center to the origin and a rotation to align the axes, any
+  parabola can be transformed into this form.
+  If we apply the affine transformation $t_1:(x,y)\mapsto (x',y')$, where
+  \[
+    \left(\begin{array}{c}
+        x' \\
+        y' \\
+    \end{array}\right)
+    =
+    \left(\begin{array}{cc}
+        \frac{1}{a} & 0            \\
+        0           & \frac{1}{a}  \\
+    \end{array}\right)
+    \left(\begin{array}{c}
+        x \\
+        y \\
+    \end{array}\right)
+  \]
+  Then the equation becomes $(y')^2=x'$. The map $t=t_2\circ t_1^{-1}$ takes the parabola
+  $P_1$ to $P_2$.
+\end{proof}
+\[ \blacktriangle \blacktriangledown \blacktriangle \]

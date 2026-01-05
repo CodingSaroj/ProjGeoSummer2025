@@ -1,29 +1,28 @@
 \chapter{Projective Geometry}
-\label{chap:projgeo}
+\label{chapter:projective}
 
 \section{The Projective Space}
 
-\subsection{Constructing the Projective Plane}
-
-\subsection{Projective Spaces}
-
 \begin{definition}
-  Let $E$ be a finite dimwnsional vector space. The \textit{projective space} $P(E)$ deduced
-  from $E$ is the set of all $1$ dimensional linear subspaces of $E$. \cite{audin}
+  Let $E$ be a finite dimensional vector space. The \textit{projective space} $P(E)$ deduced
+  from $E$ is the set of all $1$ dimensional linear subspaces of $E$.
 \end{definition}
 
 \begin{remark}
   The dimension of $P(E)$ is $dim$ $E-1$. If $E$ consists only of the point $0$, it does not
-  contain any lines, and $P(E)$ is empty. Thus it shall be implicitly assumed that dim $E\ge1$.
-  If dim $E=1$, $E$ itself is a line, and thus the set of linea comtains a unique element,
-  $P(E)$ is a point.
+  contain any lines, and $P(E)$ is empty. Thus it shall be implicitly assumed that dim $E\ge 1$.
+  If dim $E=1$, $E$ itself is a line, and thus the set of lines contains a unique element,
+  hence $P(E)$ is a point.
 \end{remark}
 
-\subsection{Projective Subspaces}
-A subset $V$ of $P(E)$ is a projective subspace if it is an image of a nonzero vector subspace
-$F$ of $E$.
+A subset $V$ of $P(E)$ is a projective subspace if it is an image of a nonzero vector
+subspace $F$ of $E$.
 
-\begin{prop}
+\begin{remark}
+  Usually, $P(\R^{n+1})$ is denoted as $\R\Ps^n$. 
+\end{remark}
+
+\begin{proposition}
   Let $V$ and $W$ be two projective subspaces of $P(E)$.
   
   \begin{itemize}
@@ -32,7 +31,7 @@ $F$ of $E$.
       line through $m$ intersects $H$ at a unique point.
   \end{itemize}
 
-\end{prop}
+\end{proposition}
 
 \begin{proof}
   Let $F$ and $G$ be the vector subspaces of $E$ from which $V$ and $W$ were deduced, i.e.
@@ -54,7 +53,7 @@ $F$ of $E$.
   \]
   This can be translated back into projective geometry to conclude that $V\cap W$ is not empty.
 
-  Now, to prove the second property, let $J$ be the vector hyperplane of which $H$ is image of.
+  Now, to prove the second proposition, let $J$ be the vector hyperplane of which $H$ is image of.
   The point $m$ is the image of a line $l$ in $E$, not contained in the hyperplane $J$.
   The assertion, translated in terms of linear algebra, is that any plane $P$ containing $l$
   meets $J$ along a unique line. Since $l$ is not in $J$, we have $P+J=E$. Hence,
@@ -63,6 +62,7 @@ $F$ of $E$.
     \text{dim }(P\cap J) &=& \text{dim }P+\text{dim }J-\text{dim }(P+J)\\
     &=& 2+\text{dim }E-1-\text{dim }E=1
   \end{eqnarray*}
+
 \end{proof}
 
 \subsection{Projective Transformations}
@@ -74,30 +74,34 @@ $F$ of $E$.
   $f:E\rightarrow E'$ with $p'\circ f=g\circ p$.
 \end{definition}
 
-\begin{prop}
+\begin{proposition}
   The set of projective transformations from $P(E)$ to itself, $PGL(E)$, is a group under
   composition.
-\end{prop}
+\end{proposition}
 
 \begin{proof}
   From the definitions, the projective transformation that descends from identity map of $E$
   forms the identity of the group. For any projective tranformation $g$ that descends from a
   linear isomorphism $f$, the transformation $g'$ that descends from $f^{-1}$ will act as its
-  inverse. Since functional composition obeys associativity, $PGL(E)$ is a group under
-  composition.
+  inverse. Since functional composition obeys associativity, $PGL(E)$ is a group.
 \end{proof}
 
-\subsection{Homogeneous Coordinates and Projective Frames}
+\section{Projective Frames}
 
 Given a basis of vector space $E$, the vectors in $E$ can be descirbed by their coordinates with
 respect to the basis. 
 
 \begin{definition}
   A point $m$ in $P(E)$ can be described by the nonzero vector that generates the line $m$. In a
-  n-dimensional projective space $P(E)$, the $(n+1)$ tuples $[x_1,\ldots,x_{n+1}]$ and
-  $[x'_1,\ldots,x'_{n+1}]$ represent the same point iff there exists a nonzero scalar $\lambda$
+  n-dimensional projective space $P(E)$, the $(n+1)$ tuples $(x_1,\ldots,x_{n+1})$ and
+  $(x'_1,\ldots,x'_{n+1})$ represent the same point iff there exists a nonzero scalar $\lambda$
   such that $x_i=\lambda x'_i$ for all $i$.
 \end{definition}
+
+\begin{remark}
+  Usually, the coordinates for projective spaces are represented as\\
+  $[x_1:x_2:\ldots:x_{n+1}]$.
+\end{remark}
 
 In a projective space $P(E)$ with dimension $n$, we actually need $n+2$ points to uniquely determine
 the basis of the underlying space $E$, which will be proved in the next lemma. It will also
@@ -118,8 +122,8 @@ justify the next definition.
 
 \begin{proof}
   Consider the points $m_i$ of $P(E)$. Since the vectors $e_i$ and $e'_i$ both generate the line
-  $m_i$, $e_i=\lambda_i e'_i$ for some nonzero $\lambda_i$. Using the $(n+2)-th$ point, we can
-  conclude that 
+  $m_i$, $e_i=\lambda_i e'_i$ for some nonzero $\lambda_i$. Using the $(n+2)^{th}$ point, we
+  can conclude that 
   \[
     (e_1+\cdots+e_{n+1})=\lambda(e'_1+\cdots+e'_{n+1})
   \]
@@ -130,19 +134,14 @@ justify the next definition.
   As we are dealing with a basis, $\lambda_i=\lambda$. Thus two bases are proportional.
 \end{proof}
 
-\begin{prop}
-  Let $P(E)$ and $P(E')$ be two projective spaces of dimension $n$. Any projectivve mapping from
-  $P(E)$ to $P(E')$ maps a projective frame of $P(E)$ onto a projective frame of $P(E')$.
-\end{prop}
-
-\section{Fundamental Theorem of Projective Geometry}
+\section{Some Results in Projective Geometry}
 
 \begin{theorem}[Fundamental Theorem of Projective Geometry]
-  \label{thm:fundprojgeo}
-  Let $(a_1,\ldots,a_{n+2})$ and $(b_1,\ldots,b_{n+2})$ be two sets of points in $\R\Ps^n$ such
+  Let \\
+  $(a_1,\ldots,a_{n+2})$ and $(b_1,\ldots,b_{n+2})$ be two sets of points in $\R\Ps^n$ such
   that none of the $a_i$ and $b_i$ belong to the projective subspace defined by $n$ of the others
   in their respective sets. Then there exists a unique projective transformation
-  $f:\R\Ps^n\rightarrow\R\Ps^n$ such that, $f(a_i)=b_i$ for all $i=1,\ldots,n+2$.
+  $f:\R\Ps^n\rightarrow\R\Ps^n$ such that, $f(a_i)=b_i$ for all $i=1,2,\ldots,n+2$.
 \end{theorem}
 
 \begin{proof}
@@ -180,43 +179,43 @@ justify the next definition.
        \tkzGetPoint{R}
     \tkzInterLL(A,C)(A',C')
        \tkzGetPoint{Q}
-    \tkzDrawLine[line width=1, add=0 and 0, black](A,B)
-    \tkzDrawLine[line width=0.5, add=0 and 0, black](B,R)
-    \tkzDrawLine[line width=1, add=0 and 0, black](A',B')
-    \tkzDrawLine[line width=0.5, add=0 and 0, black](B',R)
-    \tkzDrawLine[line width=1, add=0 and 0, black](C,B)
-    \tkzDrawLine[line width=0.5, add=0 and 0, black](B,P)
-    \tkzDrawLine[line width=1, add=0 and 0, black](C',B')
-    \tkzDrawLine[line width=0.5, add=0 and 0, black](B',P)
-    \tkzDrawLine[line width=1, add=0 and 0, black](A,C)
-    \tkzDrawLine[line width=0.5, add=0 and 0, black](C,Q)
-    \tkzDrawLine[line width=1, add=0 and 0, black](A',C')
-    \tkzDrawLine[line width=0.5, add=0 and 0, black](C',Q)
-    \tkzDrawLine[line width=0.5, add=0 and 0.1, black](U,A')
-    \tkzDrawLine[line width=0.5, add=0 and 0.5, black](U,B')
-    \tkzDrawLine[line width=0.5, add=0 and 0.2, black](U,C')
-    \tkzDrawLine[dashed, line width=0.5, add=0 and 0, black](P,Q)
+    \tkzDrawLine[line width=1, add=0 and 0](A,B)
+    \tkzDrawLine[line width=0.5, add=0 and 0](B,R)
+    \tkzDrawLine[line width=1, add=0 and 0](A',B')
+    \tkzDrawLine[line width=0.5, add=0 and 0](B',R)
+    \tkzDrawLine[line width=1, add=0 and 0](C,B)
+    \tkzDrawLine[line width=0.5, add=0 and 0](B,P)
+    \tkzDrawLine[line width=1, add=0 and 0](C',B')
+    \tkzDrawLine[line width=0.5, add=0 and 0](B',P)
+    \tkzDrawLine[line width=1, add=0 and 0](A,C)
+    \tkzDrawLine[line width=0.5, add=0 and 0](C,Q)
+    \tkzDrawLine[line width=1, add=0 and 0](A',C')
+    \tkzDrawLine[line width=0.5, add=0 and 0](C',Q)
+    \tkzDrawLine[line width=0.5, add=0 and 0.1](U,A')
+    \tkzDrawLine[line width=0.5, add=0 and 0.5](U,B')
+    \tkzDrawLine[line width=0.5, add=0 and 0.2](U,C')
+    \tkzDrawLine[dashed, line width=0.5, add=0 and 0](P,Q)
     \tkzDrawPoints[fill=black](U,A,B,C,A',B',C',P,Q,R)
-    \tkzLabelPoints[left, black](U)
-    \tkzLabelPoints[above left, black](A)
-    \tkzLabelPoints[above, black](A')
-    \tkzLabelPoints[above, black](B)
-    \tkzLabelPoints[above, black](B')
-    \tkzLabelPoints[below left, black](C)
-    \tkzLabelPoints[below right, black](C')
-    \tkzLabelPoints[above, black](P)
-    \tkzLabelPoints[below, black](Q)
-    \tkzLabelPoints[below left, black](R)
+    \tkzLabelPoints[left](U)
+    \tkzLabelPoints[above left](A)
+    \tkzLabelPoints[above](A')
+    \tkzLabelPoints[above](B)
+    \tkzLabelPoints[above](B')
+    \tkzLabelPoints[below left](C)
+    \tkzLabelPoints[below right](C')
+    \tkzLabelPoints[above](P)
+    \tkzLabelPoints[below](Q)
+    \tkzLabelPoints[below left](R)
   \end{scope}
   \end{tikzpicture}
-  \caption{}
+  \caption{$P$, $Q$, and $R$ are collinear.}
 \end{figure}
 
 \begin{proof}
   We will prove the theorem for the special case where $A=[1:0:0]$, $B=[0:1:0]$, $C=[0:0:1]$,
   and $U=[1:1:1]$. From the fundamental theorem of projective geometry, we know that it will be
-  congruent to any other configuration. We can use the fact that projective congruence preserves
-  projrctive properties, to deduce that the theorem holds in general.
+  congruent to any other configuration. We can use the fact that projective congruence
+  preserves projective properties, to deduce that the theorem holds in general.
 
   The line $AU$ has the equation $y=z$. Since $A'$ lies on $AU$, it must have coordinates
   $[a:b:b]$, where $b\ne 0$, since $A'\ne A$. We can also wirte $A'=[p:1:1]$, where $p=a/b$.
@@ -225,8 +224,8 @@ justify the next definition.
   Now to find the point $P$, we find the equation of the line $BC$.
   \[
     \begin{vmatrix}
-      x & y & z\\
-      1 & q & 1\\
+      x & y & z \\
+      1 & q & 1 \\
       1 & 1 & r
     \end{vmatrix}
     =0\Longrightarrow (qr-1)x-(r-1)y+(1-q)=0
@@ -238,7 +237,7 @@ justify the next definition.
   \[
     \begin{vmatrix}
       0   & 1-q & r-1 \\
-      1-p & 0   & r-1\\
+      1-p & 0   & r-1 \\
       1-p & q-1 & 0
     \end{vmatrix}
   \]
@@ -247,25 +246,25 @@ justify the next definition.
     &=& 0
   \end{eqnarray*}
 
-  i.e $P$, $Q$, and $R$ are colinear.
+  Therefore $P$, $Q$, and $R$ are colinear.
 \end{proof}
 
-\begin{prop}
-  There is a unique projective conic through any given set of five points, no three of which are
-  collinear.
-\end{prop}
+\begin{proposition}
+  There is a unique projective conic through any given set of five points, no three of which
+  are colinear.
+\end{proposition}
 
 \begin{proof}
  By the fundamental theorem of projective geometry, there exists a projective transformation
  $t$ which maps the four out of given five points to the points $[1:0:0]$, $[0:1:0]$, $[0:0:1]$
  and $[1:1:1]$. Let $[a:b:c]$ be the image of the fifth point under $t$. Since projective
- transformations preserve collinearity, no three of the five points are collinear, and also
- it can be deduced that $a$, $b$ and $c$ are nonzero, since if it were so, it would be collinear
- with other two points.
+ transformations preserve colinearity, no three of the five points are colinear, and also
+ it can be deduced that $a$, $b$ and $c$ are nonzero, since if any of them were zero, the
+ image of the fifth point would be collinear with other two points.
 
- Let the conic that passes through these 5 points be of the form
+ The conic that passes through these 5 points will be of the general form
  \[
-   Ax^2+Bxy+Cy^2+Fxz+Gyz+Hz^2
+   Ax^2+Bxy+Cy^2+Fxz+Gyz+Hz^2=0
  \]
  By substituting the points $[1:0:0]$, $[0:1:0]$, and $[0:0:1]$, the equation can be reduced
  to the form
@@ -282,17 +281,17 @@ justify the next definition.
  \]
  Solving these simultaneous equations, we get
  \[
-   F=-G\frac{ab-bc}{ab-ac}
+   F=-G\left(\frac{ab-bc}{ab-ac}\right)
  \]
  and
  \[
-   B= -G\frac{ac-bc}{ac-ab}
+   B= -G\left(\frac{ac-bc}{ac-ab}\right)
  \]
  It follows that the conic is of the form
  \[
-   -G\frac{ac-bc}{ac-ab}xy-G\frac{ab-bc}{ab-ac}xz+Gyz=0
+   -G\left(\frac{ac-bc}{ac-ab}\right)xy-G\left(\frac{ab-bc}{ab-ac}\right)xz+Gyz=0
  \]
- or
+ that is,
  \[
    c(a-b)xy+b(c-a)xz+a(b-c)yz=0
  \]
@@ -300,15 +299,13 @@ justify the next definition.
 \end{proof}
 
 \begin{remark}
-  \textbf{The Standard Projective Conic}
-
   The projective conic $E=\{[x:y:z]:xy+yz+zx=0\}$ is called the standard projective conic.
   It passes through the traingle of reference formed by the points $[1:0:0]$, $[0:1:0]$, and
   $[0:0:1]$. This fact can be used to simplify calculations involving projcetive conics.
 
   All the points on the conic except than $[1:0:0]$ can be parameterized as $[t^2+t:t+1:-t]$,
-  where $t\in\R$. All points on $E$ satisfy $xy+yz+zx=0$. Suppose $y\ne 0$, let $t=x/y$. Then
-  $x=ty$, and so
+  where $t\in\R$. All points on $E$ satisfy $xy+yz+zx=0$. Suppose $y\ne 0$, let $t=x/y$.
+  Substituting $x=ty$ to the equatin of the conic:
   \begin{eqnarray*}
     & (ty)y+yz+z(ty)=0 \\
     \Longrightarrow & ty+(t+1)z=0 \\
@@ -320,11 +317,11 @@ justify the next definition.
   where $y=0$.
 \end{remark}
 
-\begin{prop}
+\begin{proposition}
   Let $E_1$ and $E_2$ be non-degenrate conics that pass through the points $P_1$, $Q_1$, $R_1$
-  and $P_2$, $Q_2$, $R_2$ respectively. THen ther exists a projective transformation $t$ which
+  and $P_2$, $Q_2$, $R_2$ respectively. Then there exists a projective transformation $t$ which
   maps $E_1$ to $E_2$ such that $t(P_1)=P_2$, $t(Q_1)=Q_2$, and $t(R_1)=R_2$.
-\end{prop}
+\end{proposition}
 
 \begin{proof}
   We prove this result by proving that for any conic $E_1$, there exists a transormation $t_1$
@@ -340,7 +337,7 @@ justify the next definition.
   \[
     \frac{xy}{GH}+\frac{yz}{FH}+\frac{zx}{FG}=0
   \]
-  Now, let $g$ be the transformation of the form $g([x:y:z])=A[x:y:z]\forall[x:y:z]\in\R\Ps^3$
+  Now, let $g$ be the transformation of the form $g([x:y:z])=A[x:y:z]\forall[x:y:z]\in\R\Pr^3$
   where $A$ is a $3\times 3$ matrix such that
   \[
     A=
@@ -362,47 +359,45 @@ justify the next definition.
 \begin{theorem}[Pascal's Theorem]
   Let $A$, $B$, $C$, $A'$, $B'$, and $C'$ be six distinct points on a non-degenrate projective
   conic. Let $BC$ and $B'C$ intersect at $P$, $CA'$ and $C'A$ at $Q$, and $AB'$ at $R$. The
-  points $P$, $Q$, and $R$ are collinear.
+  points $P$, $Q$, and $R$ are colinear.
 \end{theorem}
 
 \begin{figure}[H]
   \center
   \begin{tikzpicture}
     \tkzDefPoint(0,0){O}
-    \tkzDefPoint({-3*cos(45)},{2*sin(45)}){A}
-    \tkzDefPoint(0,2){B}
-    \tkzDefPoint(2,1.490712){C}
-    \tkzDefPoint(-2,-1.490712){A'}
-    \tkzDefPoint(0,-2){B'}
-    \tkzDefPoint(2,-1.490712){C'}
+    \tkzDefPoint({3*cos(2)},{2*sin(2)}){A}
+    \tkzDefPoint({3*cos(1.4)},{2*sin(1.4)}){B}
+    \tkzDefPoint({3*cos(0.8)},{2*sin(0.8)}){C}
+    \tkzDefPoint({3*cos(3.4)},{2*sin(3.4)}){A'}
+    \tkzDefPoint({3*cos(4.8)},{2*sin(4.8)}){B'}
+    \tkzDefPoint({3*cos(6)},{2*sin(6)}){C'}
     \tkzInterLL(A,B')(A',B)
-    \tkzGetPoint{R}
+       \tkzGetPoint{R}
     \tkzInterLL(A,C')(A',C)
-    \tkzGetPoint{Q}
+       \tkzGetPoint{Q}
     \tkzInterLL(C,B')(C',B)
-    \tkzGetPoint{P}
-    \tkzDefPoint(1.13,0){P}
-    \tkzDrawEllipse[line width=1, black](O,3,2,0)
-    \tkzDrawPoints[fill=black](A,B,C,A',B',C',P,Q,R)
-    \tkzDrawLine[black, add=0 and 0](A,B')
-    \tkzDrawLine[black, add=0 and 0](A,C')
-    \tkzDrawLine[black, add=0 and 0](B,A')
-    \tkzDrawLine[black, add=0 and 0](B,C')
-    \tkzDrawLine[black, add=0 and 0](C,B')
-    \tkzDrawLine[black, add=0 and 0](C,A')
-    \tkzDrawLine[dashed, add=0.5 and 0.5, black](P,R)
-    \tkzLabelPoints[above right, black](P)
-    \tkzLabelPoints[above, black](Q)
-    \tkzLabelPoints[above left, black](R)
-    \tkzLabelPoints[above left, black](A)
-    \tkzLabelPoints[above, black](B)
-    \tkzLabelPoints[above right, black](C)
-    \tkzLabelPoints[below left, black](A')
-    \tkzLabelPoints[below, black](B')
-    \tkzLabelPoints[below right, black](C')
+       \tkzGetPoint{P}
+    \tkzDrawEllipse[line width=0.75](O,3,2,0)
+    \tkzDrawPoints[fill=pink](A,B,C,A',B',C',P,Q,R)
+    \tkzDrawLine[line width=0.5, add=0 and 0](A,B')
+    \tkzDrawLine[line width=0.5, add=0 and 0](A,C')
+    \tkzDrawLine[line width=0.5, add=0 and 0](B,A')
+    \tkzDrawLine[line width=0.5, add=0 and 0](B,C')
+    \tkzDrawLine[line width=0.5, add=0 and 0](C,B')
+    \tkzDrawLine[line width=0.5, add=0 and 0](C,A')
+    \tkzDrawLine[line width=0.5, dashed, add=0.4 and 0.6](P,R)
+    \tkzLabelPoints[above right](P)
+    \tkzLabelPoints[above](Q)
+    \tkzLabelPoints[above left](R)
+    \tkzLabelPoints[above left](A)
+    \tkzLabelPoints[above](B)
+    \tkzLabelPoints[above right](C)
+    \tkzLabelPoints[below left](A')
+    \tkzLabelPoints[below](B')
+    \tkzLabelPoints[below right](C')
   \end{tikzpicture}
   \caption{When the $E$ is an ellipse.}
-  \label{fig:pascal}
 \end{figure}
 
 \begin{proof}
@@ -414,7 +409,7 @@ justify the next definition.
   point $P$ lies on both of these lines. Hence it has the homogeneous coordinates
   $[b(c+1):c+1:-b]$. Similarly, $Q=[a(c+1):c+1:-c]$, and $R=[b(a+1):b+1:-b]$.
 
-  To check their collinearity, evaluate the determinant:
+  To check their colinearity, evaluate the determinant:
   \[
     \begin{vmatrix}
       b(c+1) & c+1 & -b \\
@@ -423,31 +418,29 @@ justify the next definition.
     \end{vmatrix}
   \]
   Which, after some row operations, simplifies to be equal to $0$.
-  Hence, the points $P$, $Q$, and $R$ are collinear.
+  Hence, the points $P$, $Q$, and $R$ are colinear.
 \end{proof}
-
-Proof adapted from \cite{brannan}.
 
 \section{The Cross-Ratio}
 
 \begin{definition}
   Let $a$, $b$, $c$ and $d$ be four points on a projective line $D$. There exists a unique map
-  from $D$ to $K\cup\{\infty\}$ that maps $a$ to $\infty$, $b$ to $0$, and $c$ to $1$. The
+  $g:D\rightarrow K\cup\{\infty\}$ that maps $a$ to $\infty$, $b$ to $0$, and $c$ to $1$. The
   image of $d$ under this projective mapping is called the \textit{cross-ratio} of the points
   $(a,b,c,d)$, and denoted $[a,b,c,d]$.
 \end{definition}
 
-\begin{prop}
+\begin{proposition}
   Let $a_1$, $a_2$, $a_3$, and $a_4$ be four points on the line $D$ (the first three being
   distinct) and $a'_1$, $a'_2$, $a'_3$, and $a'_4$ be four points on another line $D'$
   (satisfying the same assumption). There exists a projective transformation $f:D\rightarrow D'$
-  such that $f(a_i)=a'_i$ iff $[a_1,a_2,a_3,a_4]=[a'_1,a'_2,a'_3,a'_4]$.
-\end{prop}
+  such that $f(a_i)=a'_i \Leftrightarrow [a_1,a_2,a_3,a_4]=[a'_1,a'_2,a'_3,a'_4]$.
+\end{proposition}
 
 \begin{proof}
   Assume $f$ is a projective mapping that sends $a_i$ to $a'_i$. Let $g$ and $g'$ be functions
   such that $[a_1,a_2,a_3,a_4]=g(a_4)$, and $[a'_1,a'_2,a'_3,a'_4]=g'(a'_4)$. $g'\circ f$ is a
-  function, which maps $a_1$ to $\infty$, $a_2$ to $0$, and $a_3$ to $1$. But such function is
+  function which maps $a_1$ to $\infty$, $a_2$ to $0$, and $a_3$ to $1$. But such function is
   unique. Hence, $g=g'\circ f$, which implies that $g(a_4)=g'(a'_4)$. That is,
   \[
     [a_1,a_2,a_3,a_4]=[a'_1,a'_2,a'_3,a'_4]
@@ -472,15 +465,15 @@ Proof adapted from \cite{brannan}.
   \]
 \end{remark}
 
-\begin{prop}
-  If $a$, $b$, $c$, and $d$ are four collinear distinct points, then the folloeing equalities
+\begin{proposition}
+  If $a$, $b$, $c$, and $d$ are four colinear distinct points, then the following equalities
   hold
   \begin{eqnarray*}
     \left[a,b,c,d\right]+\left[a,c,b,d\right]=1 \\
     \left[b,a,c,d\right]=\left[a,b,c,d\right]^{-1} \\
     \left[a,b,d,c\right]=\left[a,b,c,d\right]^{-1}
   \end{eqnarray*}
-\end{prop}
+\end{proposition}
 
 \begin{proof}
   Let $f$ be the function that defines the cross-ratio, such that $[a,b,c,d]=f(d)$, and let
@@ -513,47 +506,12 @@ Proof adapted from \cite{brannan}.
 \end{proof}
 
 \begin{remark}
-  If $[a,b,c,d]=k$, the 24 cross-ratios obtained by permuting the four points take the general
-  six values:
+  If $[a,b,c,d]=k$, the 24 cross-ratios obtained by permuting the four points take one of
+  these six values:
   \[
     k \hspace{8pt},\hspace{8pt} \frac{1}{k} \hspace{8pt},
     \hspace{8pt} 1-k \hspace{8pt},\hspace{8pt} 1-\frac{1}{k} \hspace{8pt},
     \hspace{8pt} \frac{1}{1-k} \hspace{8pt},\hspace{8pt} \frac{k}{k-1}
   \]
 \end{remark}
-
-\section{Elliptic Curves}
-
-\begin{definition}
-  An elliptic curve is a non-empty, non-singular, degree 3 projective curve. \cite{spallone}
-\end{definition}
-
-\subsection{Group Laws on Conics}
-
-\begin{figure}[H]
-  \center
-  \begin{tikzpicture}
-    \begin{scope}[xscale=0.9, yscale=0.8]
-    \tkzDefPoint(0,0){C}
-    \tkzDefPoint(-2.08,1){P}
-    \tkzDefPoint(0.55,{sqrt(3)}){Q}
-    \tkzDefPoint(4.82,5.5){O}
-    \tkzDefPoint({(-2.08)+(-2.2)*(-2.08-0.55)},{(1)+(-2.2)*(1-sqrt(3))}){s}
-    \tkzDefPoint({(4.82)+((-2.3)*(4.82-((-2.08)+(-2.2)*(-2.08-0.55))))},
-                 {(5.5)+((-2.3)*(5.5-((1)+(-2.2)*(1-sqrt(3)))))}){s'}
-    \tkzDrawPoints[fill=black](P,Q,O,s,s')
-    \tkzDrawLine[<->, line width=0.5, add=0.5 and 1.5, black](P,Q)
-    \tkzDrawLine[<->, line width=0.5, add=0.5 and 1.75, black](O,s)
-    \draw[line width =1] (5,6) .. controls (3,0.5) .. (0,2)
-                               .. controls (-3,3) and (-3,-3)  .. (0,-2)
-                               .. controls (3,-0.5) .. (5,-6);
-    \tkzLabelPoints[above left, black](P)
-    \tkzLabelPoints[above, black](Q)
-    \tkzLabelPoint[below right, black](s){$P\ast Q$}
-    \tkzLabelPoint[above left, black](s'){$P+Q$}
-    \tkzLabelPoints[above left, black](O)
-    \end{scope}
-  \end{tikzpicture}
-  \caption{Addition Law}
-\end{figure}
-
+\[ \blacktriangle \blacktriangledown \blacktriangle \]

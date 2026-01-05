@@ -1,7 +1,52 @@
-\input{../common/preamble.tex}
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{
+  amsmath,
+  amsthm,
+  amssymb,
+  graphicx,
+  float,
+  tikz,
+  tkz-euclide,
+  hyperref,
+  mathpazo,
+  enumitem,
+  tikz-3dplot,
+}
+
+\title{\Huge\textbf{Geometry}}
+\author{Tejaswi}
+\date{Monsoon 2025}
+\hyphenpenalty=1000
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem*{example}{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand\bibname{References}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Ps}{\mathbb{P}}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 \begin{document}
   \maketitle
+
   \pagenumbering{roman}
 
   \tableofcontents
@@ -9,12 +54,11 @@
 
   \pagenumbering{arabic}
 
-  \input{chapters/basics.tex}
-  \input{chapters/conics.tex}
-  \input{chapters/affgeo.tex}
-  \input{chapters/projgeo.tex}
+  \input{chapters/quadratic.tex}
+  \input{chapters/affine.tex}
+  \input{chapters/projective.tex}
 
+  \nocite{beg, audin, shirali}
   \bibliographystyle{alpha}
   \bibliography{main}
-
 \end{document}
